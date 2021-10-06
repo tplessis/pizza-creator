@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="parent" class="m-6">
+
+  <h1 class="text-3xl font-light text-gray-800 my-6">Compose your pizza</h1>
+  <h2 class="text-gray-400 font-medium my-4">Enter your details :</h2>
+
+  <div class="flex justify-between space-x-6 mt-2" formGroupName="details">
+    <div class="flex-1 flex-col">
+      <label
+        class="flex items-center justify-between text-xs uppercase font-semibold text-gray-600 cursor-pointer mb-1"
+        for="name">
+        <span>Name <span class="text-red-500">*</span></span>
+        <span *ngIf="parent.get('details')?.get('name')?.hasError('required') && parent.get('details')?.get('name')?.touched"
+              class="text-red-500 text-sm capitalize font-normal">
+          Field is required
+        </span>
+      </label>
+      <input
+        name="name"
+        class="focus-outline-none focus:ring-green-500 focus:border-green-500 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
+        formControlName="name" type="text"
+        placeholder="John Smith">
+    </div>
+    <div class="flex-1 flex-col">
+      <label
+        class="flex items-center justify-between text-xs uppercase font-semibold text-gray-600 cursor-pointer mb-1"
+        for="email">
+        <span>Email <span class="text-red-500">*</span></span>
+        <span *ngIf="parent.get('details')?.get('email')?.hasError('required') && parent.get('details')?.get('email')?.touched"
+              class="text-red-500 text-sm capitalize font-normal">
+          Field is required
+        </span>
+      </label>
+      <input
+        name="email"
+        class="focus-outline-none focus:ring-green-500 focus:border-green-500 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
+        formControlName="email" type="email"
+        placeholder="Enter your email">
+    </div>
+    <div class="flex-1 flex-col">
+      <label
+        class="flex items-center justify-between text-xs uppercase font-semibold text-gray-600 cursor-pointer mb-1"
+        for="confirm">
+        <span>Confirm <span class="text-red-500">*</span></span>
+        <span *ngIf="parent.get('details')?.get('confirm')?.hasError('required') && parent.get('details')?.get('confirm')?.touched"
+              class="text-red-500 text-sm capitalize font-normal">
+          Field is required
+        </span>
+      </label>
+      <input
+        name="confirm"
+        class="focus-outline-none focus:ring-green-500 focus:border-green-500 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
+        formControlName="confirm" type="email"
+        placeholder="Confirm your email">
+    </div>
+  </div>
+</form>

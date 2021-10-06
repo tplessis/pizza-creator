@@ -7,6 +7,9 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      'lato': ['lato', 'sans-serif']
+    },
     extend: {},
   },
   variants: {
