@@ -4,12 +4,14 @@ import { ConfiguratorComponent } from './containers/configurator/configurator.co
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SizeComponent } from './components/size/size.component';
 
 @NgModule({
   declarations: [
     ConfiguratorComponent,
     ViewerComponent,
-    FormComponent
+    FormComponent,
+    SizeComponent
   ],
   imports: [
     CommonModule,

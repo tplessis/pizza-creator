@@ -1,0 +1,36 @@
+<h2 class="text-gray-400 font-medium pb-4 pt-6">Select pizza size :</h2>
+<div class="flex justify-between space-x-6">
+  <label
+    *ngFor="let size of sizes; let i = index;"
+    class="group flex flex-grow items-center cursor-pointer">
+    <input
+      type="radio"
+      name="size"
+      [attr.value]="size.value"
+      (blur)="onBlur(size.value)"
+      (change)="onChange(size.value)"
+      (focus)="onFocus(size.value)"
+      [attr.checked]="value === size.value"
+      class="hidden peer w-0 h-0">
+    <div class="border-2 border-white peer-checked:border-green-400 group-hover:border-green-500 rounded-full m-1">
+      <div class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900 opacity-40">
+        <div
+        class="line absolute bg-white transform origin-center"
+        [ngClass]="{'rotate-45': size.label === 'large', 'rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
+      </div>
+      <div
+        class="line absolute bg-white transform origin-center rotate-0"
+        [ngClass]="{'-rotate-45': size.label === 'large', '-rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
+      </div>
+      <div
+        class="line absolute bg-white transform origin-center rotate-0"
+        [ngClass]="{'hidden': size.label === 'medium'}">
+      </div>
+      <div
+        class="line absolute bg-white transform origin-center rotate-90">
+      </div>
+      </div>
+    </div>
+    <span class="block text-sm text-gray-600 group-hover:text-green-500 peer-checked:text-green-400 ml-2">{{ size.label | titlecase }} ({{ size.value }}")</span>
+  </label>
+</div>

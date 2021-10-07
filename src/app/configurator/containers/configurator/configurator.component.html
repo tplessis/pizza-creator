@@ -4,7 +4,9 @@
   </div>
   <div class="bg-white h-full w-7/12 z-10" style="box-shadow: 0 1px 40px rgba(0, 0, 0, 0.27);">
     <pizza-form
-      [parent]="form">
+      [parent]="form"
+      [sizes]="sizes"
+      (submit)="onSubmit($event)">
     </pizza-form>
   </div>
 </div>

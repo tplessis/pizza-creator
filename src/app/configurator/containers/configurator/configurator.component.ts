@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { IPizzaSize } from '../../../shared/models/pizza-size.interface';
 
 @Component({
   selector: 'pizza-configurator',
@@ -15,13 +16,25 @@ export class ConfiguratorComponent implements OnInit {
       confirm: ['', Validators.required],
       phone: ['', Validators.required],
       address: ['', [Validators.required, Validators.minLength(3)]],
-      postcode: ['', [Validators.required, Validators.minLength(3)]]
+      city: ['', [Validators.required, Validators.minLength(3)]]
+    }),
+    pizza: this.fb.group({
+      size: ['', Validators.required]
     })
   });
 
+  sizes: IPizzaSize[] = [
+    { label: 'large', value: 13 },
+    { label: 'medium', value: 11 },
+    { label: 'small', value: 9 }
+  ];
+
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit(form: FormGroup) {
+    console.log(form.value);
   }
 
 }
