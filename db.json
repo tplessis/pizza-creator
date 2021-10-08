@@ -1,8 +1,8 @@
 {
   "sizes": [
-    { "id": 1, "label": "small", "price": 9.99 },
-    { "id": 2, "label": "medium", "price": 12.99 },
-    { "id": 3, "label": "large", "price": 16.99 }
+    { "id": 1, "label": "small", "value": 9, "price": 9.99 },
+    { "id": 2, "label": "medium", "value": 11, "price": 12.99 },
+    { "id": 3, "label": "large", "value": 13, "price": 16.99 }
   ],
   "toppings": [
     { "id": 1, "label": "anchovy", "price": 0.9 },

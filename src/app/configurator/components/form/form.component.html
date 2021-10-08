@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit($event)" [formGroup]="parent" class="flex flex-col h-full p-6">
 
-  <h1 class="text-3xl font-light text-gray-800 py-4">Compose your pizza</h1>
+  <h1 class="text-3xl font-light text-gray-800 pb-4">Compose your pizza</h1>
 
   <div class="flex flex-col flex-grow justify-between h-full">
     <div class="flex-grow">
@@ -110,9 +110,17 @@
 
       <ng-container formGroupName="pizza">
         <pizza-size
+          [parent]="parent"
           [sizes]="sizes"
           formControlName="size">
         </pizza-size>
+      </ng-container>
+
+      <ng-container formGroupName="pizza">
+        <pizza-toppings
+          [toppings]="toppings"
+          formControlName="toppings">
+        </pizza-toppings>
       </ng-container>
 
     </div>

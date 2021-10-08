@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IPizzaSize } from 'src/app/shared/models/pizza-size.interface';
 
 export const PIZZA_SIZE_ACCESSOR = {
@@ -15,6 +15,9 @@ export const PIZZA_SIZE_ACCESSOR = {
   styleUrls: ['./size.component.scss']
 })
 export class SizeComponent implements ControlValueAccessor {
+
+  @Input()
+  parent: FormGroup;
 
   @Input()
   sizes: Array<IPizzaSize>;

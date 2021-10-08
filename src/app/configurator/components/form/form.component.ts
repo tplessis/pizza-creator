@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IPizzaSize } from 'src/app/shared/models/pizza-size.interface';
+import { IPizzaTopping } from '../../../shared/models/pizza-topping.interface';
 
 @Component({
   selector: 'pizza-form',
@@ -14,6 +15,9 @@ export class FormComponent implements OnInit {
 
   @Input()
   sizes: Array<IPizzaSize>;
+
+  @Input()
+  toppings: Array<IPizzaTopping>;
 
   @Output()
   submit = new EventEmitter<any>();

@@ -1,0 +1,26 @@
+<h2 class="text-gray-400 font-medium pb-4 pt-6">Add toppings :</h2>
+<div class="flex flex-wrap justify-between">
+  <div *ngFor="let topping of toppings" class="group flex w-1/4">
+    <label
+      class="flex items-center border-2 border-white cursor-pointer rounded overflow-hidden bg-gray-50 text-gray-800 text-sm w-full mx-2 mb-4"
+      [ngClass]="{'border-green-500': value.includes(topping)}">
+      <input
+        type="checkbox"
+        [attr.name]="topping"
+        [attr.value]="topping"
+        (blur)="onBlur(topping)"
+        (change)="onChange(topping)"
+        (focus)="onFocus(topping)"
+        [attr.checked]="value.includes(topping)"
+        class="hidden w-0 h-0">
+      <span class="flex justify-center bg-gray-200 bg-cover h-full w-9 {{ topping.label }}">
+        <img [attr.src]="'assets/images/'+ topping.label +'.svg'" class="w-6" alt="" />
+      </span>
+      <span
+        class="p-2"
+        [ngClass]="{'text-green-500 font-semibold': value.includes(topping)}">
+        {{ topping.label | titlecase }}
+      </span>
+    </label>
+  </div>
+</div>

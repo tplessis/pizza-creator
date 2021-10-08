@@ -5,13 +5,15 @@ import { ViewerComponent } from './components/viewer/viewer.component';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SizeComponent } from './components/size/size.component';
+import { ToppingsComponent } from './components/toppings/toppings.component';
 
 @NgModule({
   declarations: [
     ConfiguratorComponent,
     ViewerComponent,
     FormComponent,
-    SizeComponent
+    SizeComponent,
+    ToppingsComponent
   ],
   imports: [
     CommonModule,
