@@ -5,4 +5,11 @@
     <div class="board"></div>
     <div class="base"></div>
   </div>
+  <div class="absolute bottom-4 left-6">
+    <pizza-cart-indicator></pizza-cart-indicator>
+  </div>
+  <div class="absolute flex flex-col bottom-5 right-6 text-right">
+    <span class="text-green-300 uppercase font-semibold text-xs">Pizza price :</span>
+    <span class="text-green-400 text-3xl font-thin">{{ pizzaPrice | currency:'USD':'symbol':'2.2-2' }}</span>
+  </div>
 </div>

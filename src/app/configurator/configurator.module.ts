@@ -6,9 +6,11 @@ import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SizeComponent } from './components/size/size.component';
 import { ToppingsComponent } from './components/toppings/toppings.component';
+import { CartIndicatorComponent } from './components/cart-indicator/cart-indicator.component';
 
 @NgModule({
   declarations: [
+    CartIndicatorComponent,
     ConfiguratorComponent,
     ViewerComponent,
     FormComponent,

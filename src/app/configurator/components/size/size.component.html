@@ -14,14 +14,14 @@
       type="radio"
       name="size"
       [attr.value]="size.value"
-      (blur)="onBlur(size.value)"
-      (change)="onChange(size.value)"
-      (focus)="onFocus(size.value)"
-      [attr.checked]="value === size.value"
+      (blur)="onBlur(size)"
+      (change)="onChange(size)"
+      (focus)="onFocus(size)"
+      [attr.checked]="value === size"
       class="hidden w-0 h-0">
     <div
       class="border-2 border-white rounded-full m-1"
-      [ngClass]="{'border-green-500': value === size.value}">
+      [ngClass]="{'border-green-500': value === size}">
       <div class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900 opacity-40">
         <div
         class="line absolute bg-white transform origin-center"
@@ -42,7 +42,7 @@
     </div>
     <span
       class="block text-sm font-normal text-gray-600 ml-2"
-      [ngClass]="{'text-green-500 font-semibold': value === size.value}">
+      [ngClass]="{'text-green-500 font-semibold': value === size}">
       {{ size.label | titlecase }} ({{ size.value }}")
     </span>
   </label>

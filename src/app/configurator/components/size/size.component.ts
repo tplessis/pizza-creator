@@ -25,8 +25,8 @@ export class SizeComponent implements ControlValueAccessor {
   private onModelChange: Function = () => {};
   private onTouch: Function;
 
-  value: number;
-  focused: number;
+  value: IPizzaSize;
+  focused: IPizzaSize | undefined;
 
   constructor() { }
 
@@ -38,20 +38,20 @@ export class SizeComponent implements ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  writeValue(value: number) {
+  writeValue(value: IPizzaSize) {
     this.value = value;
   }
 
-  onChange(value: number) {
+  onChange(value: IPizzaSize) {
     this.value = value;
     this.onModelChange(value);
   }
 
-  onBlur(value: number) {
-    this.focused = 0;
+  onBlur(value: IPizzaSize) {
+    this.focused = undefined;
   }
 
-  onFocus(value: number) {
+  onFocus(value: IPizzaSize) {
     this.focused = value;
     this.onTouch();
   }

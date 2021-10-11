@@ -26,9 +26,9 @@ export class ConfiguratorComponent implements OnInit {
   });
 
   sizes: IPizzaSize[] = [
-    { label: 'large', value: 13 },
-    { label: 'medium', value: 11 },
-    { label: 'small', value: 9 }
+    { label: 'large', value: 13, price: 8.5 },
+    { label: 'medium', value: 11 , price: 7 },
+    { label: 'small', value: 9, price: 6 }
   ];
 
   toppings: IPizzaTopping[] = [
