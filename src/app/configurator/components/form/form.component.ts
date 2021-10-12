@@ -20,7 +20,7 @@ export class FormComponent implements OnInit {
   toppings: Array<IPizzaTopping>;
 
   @Output()
-  submit = new EventEmitter<any>();
+  submit = new EventEmitter<FormGroup>();
 
   constructor() { }
 

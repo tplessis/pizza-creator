@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SizeComponent } from './components/size/size.component';
 import { ToppingsComponent } from './components/toppings/toppings.component';
 import { CartIndicatorComponent } from './components/cart-indicator/cart-indicator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CartIndicatorComponent } from './components/cart-indicator/cart-indicat
     ToppingsComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule
