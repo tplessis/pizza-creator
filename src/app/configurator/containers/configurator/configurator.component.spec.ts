@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { ConfiguratorComponent } from './configurator.component';
 
 describe('ConfiguratorComponent', () => {
@@ -8,6 +8,9 @@ describe('ConfiguratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule
+      ],
       declarations: [ ConfiguratorComponent ]
     })
     .compileComponents();
@@ -19,7 +22,7 @@ describe('ConfiguratorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the configurator', () => {
     expect(component).toBeTruthy();
   });
 });

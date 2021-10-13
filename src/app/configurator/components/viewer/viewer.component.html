@@ -4,7 +4,7 @@
   <div class="pizza" [ngClass]="{'active': active}">
     <div class="board"></div>
     <div class="base"></div>
-    <div class="toppings">
+    <div class="toppings" *ngIf="pizza">
       <div
         *ngFor="let topping of pizza.toppings; let i = index;"
         [style.zIndex]="i"
