@@ -39,9 +39,4 @@ describe('ConfiguratorComponent', () => {
     const pizzaViewer = findComponent(fixture, 'pizza-viewer');
     expect(pizzaViewer).toBeTruthy();
   });
-
-  it('shloud passes a pizza to pizza viewer', () => {
-    const counter = findComponent(fixture, 'app-counter');
-    /* … */
-  });
 });

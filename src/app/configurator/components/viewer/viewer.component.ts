@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
-import { IPizza } from 'src/app/shared/models/pizza.interface';
+import { IPizza } from '@shared/models/pizza.interface';
 
 export const DROP_ANIMATION = trigger('drop', [
   transition(':enter', [

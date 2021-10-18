@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IPizzaTopping } from '../../../shared/models/pizza-topping.interface';
+import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
 
 export const PIZZA_TOPPINGS_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,

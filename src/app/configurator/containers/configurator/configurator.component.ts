@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { IPizzaTopping } from 'src/app/shared/models/pizza-topping.interface';
-import { IPizzaSize } from '../../../shared/models/pizza-size.interface';
+import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
+import { IPizzaSize } from '@shared/models/pizza-size.interface';
+import { CartService } from '@shared/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pizza-configurator',
@@ -46,13 +48,21 @@ export class ConfiguratorComponent implements OnInit {
     { id: 12, label: "tomato", price: 0.9 }
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private cartService: CartService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: FormGroup) {
     this.form.markAllAsTouched();
-    console.log(form.value);
+
+    if (this.form.valid) {
+      this.cartService.addPizza(this.form.value);
+      this.router.navigate(['cart']);
+    }
   }
 
 }

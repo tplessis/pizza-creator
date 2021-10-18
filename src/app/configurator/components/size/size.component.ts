@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IPizzaSize } from 'src/app/shared/models/pizza-size.interface';
+import { IPizzaSize } from '@shared/models/pizza-size.interface';
 
 export const PIZZA_SIZE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
