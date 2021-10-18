@@ -1,0 +1,71 @@
+.pizza {
+  min-height: 60px;
+  min-width: 60px;
+
+  &.medium {
+    min-height: 50px;
+    min-width: 50px;
+
+    .line {
+      width: 50px;
+      left: -2px;
+      top: 22px;
+
+      &:before {
+        left: 10px;
+        top: 6px;
+      }
+      &:after {
+        right: 10px;
+        bottom: 6px;
+      }
+    }
+  }
+
+  &.small {
+    min-height: 40px;
+    min-width: 40px;
+
+    .line {
+      width: 40px;
+      left: -2px;
+      top: 17px;
+
+      &:before {
+        left: 25px;
+        top: 6px;
+      }
+      &:after {
+        right: 25px;
+        bottom: 6px;
+      }
+    }
+  }
+
+  .line {
+    width: 60px;
+    height: 2px;
+    top: 27px;
+    left: -2px;
+
+    &:before, &:after {
+      position: absolute;
+      @apply bg-red-800;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      content: ' ';
+      z-index: 1;
+    }
+
+    &:before {
+      top: 6px;
+      left: 9px;
+    }
+
+    &:after {
+      bottom: 6px;
+      right: 9px;
+    }
+  }
+}

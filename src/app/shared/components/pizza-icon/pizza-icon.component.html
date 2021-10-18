@@ -1,0 +1,21 @@
+<div
+  class="border-2 border-white rounded-full m-1"
+  [ngClass]="{'border-green-500': active}">
+  <div class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900 opacity-40">
+    <div
+    class="line absolute bg-white transform origin-center"
+    [ngClass]="{'rotate-45': size.label === 'large', 'rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
+  </div>
+  <div
+    class="line absolute bg-white transform origin-center rotate-0"
+    [ngClass]="{'-rotate-45': size.label === 'large', '-rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
+  </div>
+  <div
+    class="line absolute bg-white transform origin-center rotate-0"
+    [ngClass]="{'hidden': size.label === 'medium'}">
+  </div>
+  <div
+    class="line absolute bg-white transform origin-center rotate-90">
+  </div>
+  </div>
+</div>

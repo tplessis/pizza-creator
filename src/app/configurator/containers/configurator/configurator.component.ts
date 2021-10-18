@@ -14,12 +14,12 @@ export class ConfiguratorComponent implements OnInit {
 
   form = this.fb.group({
     details: this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      confirm: ['', Validators.required],
-      phone: ['', Validators.required],
-      address: ['', [Validators.required, Validators.minLength(3)]],
-      city: ['', [Validators.required, Validators.minLength(3)]]
+      name: [this.cartService.user?.name, Validators.required],
+      email: [this.cartService.user?.email, Validators.required],
+      confirm: [this.cartService.user?.email, Validators.required],
+      phone: [this.cartService.user?.phone, Validators.required],
+      address: [this.cartService.user?.address, [Validators.required, Validators.minLength(3)]],
+      city: [this.cartService.user?.city, [Validators.required, Validators.minLength(3)]]
     }),
     pizza: this.fb.group({
       size: [null, Validators.required],
@@ -58,9 +58,11 @@ export class ConfiguratorComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     this.form.markAllAsTouched();
+    console.log(form.value);
 
     if (this.form.valid) {
-      this.cartService.addPizza(this.form.value);
+      this.cartService.setUser(this.form.value.details);
+      this.cartService.addPizza(this.form.value.pizza);
       this.router.navigate(['cart']);
     }
   }

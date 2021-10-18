@@ -1,24 +1,34 @@
 import { Injectable } from '@angular/core';
 import { IPizza } from '../models/pizza.interface';
+import { IUser } from '../models/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  items: IPizza[] = [];
+  private _items: IPizza[] = [];
+  private _user: IUser;
+
+  get user(): IUser {
+    return this._user;
+  }
+
+  get pizzas(): IPizza[] {
+    return this._items;
+  }
 
   constructor() {}
 
   addPizza(pizza: IPizza) {
-    this.items.push(pizza);
+    this._items.push(pizza);
   }
 
-  getPizzas() {
-    return this.items;
+  setUser(user: IUser) {
+    this._user = user;
   }
 
-  clear() {
-    this.items = [];
-    return this.items;
+  clearCart() {
+    this._items = [];
+    return this._items;
   }
 }

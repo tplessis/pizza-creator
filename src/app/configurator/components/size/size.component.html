@@ -19,30 +19,13 @@
       (focus)="onFocus(size)"
       [attr.checked]="value === size"
       class="hidden w-0 h-0">
-    <div
-      class="border-2 border-white rounded-full m-1"
-      [ngClass]="{'border-green-500': value === size}">
-      <div class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900 opacity-40">
-        <div
-        class="line absolute bg-white transform origin-center"
-        [ngClass]="{'rotate-45': size.label === 'large', 'rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
-      </div>
-      <div
-        class="line absolute bg-white transform origin-center rotate-0"
-        [ngClass]="{'-rotate-45': size.label === 'large', '-rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
-      </div>
-      <div
-        class="line absolute bg-white transform origin-center rotate-0"
-        [ngClass]="{'hidden': size.label === 'medium'}">
-      </div>
-      <div
-        class="line absolute bg-white transform origin-center rotate-90">
-      </div>
-      </div>
-    </div>
+    <pizza-icon
+      [active]="value === size"
+      [size]="size">
+    </pizza-icon>
     <span
-      class="block text-sm font-normal text-gray-600 ml-2"
-      [ngClass]="{'text-green-500 font-semibold': value === size}">
+      class="block text-sm ml-2"
+      [ngClass]="{'text-green-500 font-semibold': value === size, 'font-normal text-gray-600' : value !== size}">
       {{ size.label | titlecase }} ({{ size.value }}")
     </span>
   </label>

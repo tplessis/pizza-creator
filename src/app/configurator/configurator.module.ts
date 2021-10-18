@@ -8,6 +8,7 @@ import { SizeComponent } from './components/size/size.component';
 import { ToppingsComponent } from './components/toppings/toppings.component';
 import { CartIndicatorComponent } from './components/cart-indicator/cart-indicator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ConfiguratorModule { }
