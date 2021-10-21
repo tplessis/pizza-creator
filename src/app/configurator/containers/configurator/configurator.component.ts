@@ -14,7 +14,7 @@ export class ConfiguratorComponent implements OnInit {
 
   form = this.fb.group({
     size: [null, Validators.required],
-    toppings: [[], Validators.minLength(3)]
+    toppings: [[], [Validators.required, Validators.minLength(3)]]
   });
 
   sizes: IPizzaSize[] = [

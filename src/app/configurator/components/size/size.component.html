@@ -1,8 +1,8 @@
-<div class="flex items-center">
-  <h2 class="text-gray-400 text-sm font-medium uppercase pb-4">Select pizza size :</h2>
+<div class="flex items-center pb-4">
+  <h2 class="text-gray-400 text-sm font-medium uppercase">Select pizza size :</h2>
   <span class="text-red-500 pl-1 pt-1">*</span>
   <span *ngIf="parent && parent?.get('size')?.hasError('required') && parent.get('size')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal pt-3 pl-2">
+                  class="text-red-500 text-xs font-normal pt-1 pl-2">
               Field is required
             </span>
 </div>

@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
 
 export const PIZZA_TOPPINGS_ACCESSOR = {
@@ -15,6 +15,9 @@ export const PIZZA_TOPPINGS_ACCESSOR = {
   styleUrls: ['./toppings.component.scss']
 })
 export class ToppingsComponent implements ControlValueAccessor {
+
+  @Input()
+  parent: FormGroup;
 
   @Input()
   toppings: Array<IPizzaTopping>;
