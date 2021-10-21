@@ -23,6 +23,10 @@ export class CartService {
     this._items.push(pizza);
   }
 
+  removePizza(pizza: IPizza) {
+    this._items = this._items.filter((p: IPizza) => pizza !== p);
+  }
+
   setUser(user: IUser) {
     this._user = user;
   }

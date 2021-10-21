@@ -1,9 +1,12 @@
 module.exports = {
   mode: 'jit',
   prefix: '',
-  purge: [
-    './src/**/*.{html,ts}',
-  ]
+  purge: {
+    content: ['./src/**/*.{html,ts}'],
+    safelist: [
+      'border-green-500',
+    ]
+  }
   ,
   darkMode: 'class', // or 'media' or 'class'
   theme: {

@@ -1,7 +1,7 @@
 <div class="flex items-center">
-  <h2 class="text-gray-400 font-medium pb-4 pt-6">Select pizza size :</h2>
+  <h2 class="text-gray-400 text-sm font-medium uppercase pb-4">Select pizza size :</h2>
   <span class="text-red-500 pl-1 pt-1">*</span>
-  <span *ngIf="parent && parent.get('pizza')?.get('size')?.hasError('required') && parent.get('pizza')?.get('size')?.touched"
+  <span *ngIf="parent && parent?.get('size')?.hasError('required') && parent.get('size')?.touched"
                   class="text-red-500 text-xs capitalize font-normal pt-3 pl-2">
               Field is required
             </span>
@@ -25,7 +25,7 @@
     </pizza-icon>
     <span
       class="block text-sm ml-2"
-      [ngClass]="{'text-green-500 font-semibold': value === size, 'font-normal text-gray-600' : value !== size}">
+      [ngClass]="value === size ? 'text-green-500 font-semibold' : 'font-normal text-gray-600'">
       {{ size.label | titlecase }} ({{ size.value }}")
     </span>
   </label>

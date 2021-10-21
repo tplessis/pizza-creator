@@ -1,9 +1,9 @@
-<h2 class="text-gray-400 font-medium pb-4 pt-6">Add toppings :</h2>
+<h2 class="text-gray-400 text-sm font-medium uppercase pb-4 pt-8">Add toppings :</h2>
 <div class="flex flex-wrap justify-between">
   <div *ngFor="let topping of toppings" class="group flex w-1/4">
     <label
-      class="flex items-center border-2 border-white cursor-pointer rounded overflow-hidden bg-gray-50 text-gray-800 text-sm w-full mx-2 mb-4"
-      [ngClass]="{'border-green-500': value.includes(topping)}">
+      class="flex items-center border-2 cursor-pointer rounded overflow-hidden bg-gray-50 text-gray-800 text-sm w-full mx-2 mb-4"
+      [ngClass]="value.includes(topping) ? 'border-green-500': 'border-white'">
       <input
         type="checkbox"
         [attr.name]="topping"

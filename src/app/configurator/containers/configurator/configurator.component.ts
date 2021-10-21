@@ -13,18 +13,8 @@ import { Router } from '@angular/router';
 export class ConfiguratorComponent implements OnInit {
 
   form = this.fb.group({
-    details: this.fb.group({
-      name: [this.cartService.user?.name, Validators.required],
-      email: [this.cartService.user?.email, Validators.required],
-      confirm: [this.cartService.user?.email, Validators.required],
-      phone: [this.cartService.user?.phone, Validators.required],
-      address: [this.cartService.user?.address, [Validators.required, Validators.minLength(3)]],
-      city: [this.cartService.user?.city, [Validators.required, Validators.minLength(3)]]
-    }),
-    pizza: this.fb.group({
-      size: [null, Validators.required],
-      toppings: [[], Validators.minLength(3)]
-    })
+    size: [null, Validators.required],
+    toppings: [[], Validators.minLength(3)]
   });
 
   sizes: IPizzaSize[] = [
@@ -58,11 +48,10 @@ export class ConfiguratorComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     this.form.markAllAsTouched();
-    console.log(form.value);
+    console.log(form);
 
     if (this.form.valid) {
-      this.cartService.setUser(this.form.value.details);
-      this.cartService.addPizza(this.form.value.pizza);
+      this.cartService.addPizza(this.form.value);
       this.router.navigate(['cart']);
     }
   }

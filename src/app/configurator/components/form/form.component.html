@@ -1,128 +1,25 @@
 <form (ngSubmit)="onSubmit($event)" [formGroup]="parent" class="flex flex-col h-full p-6">
-
-  <h1 class="text-3xl font-light text-gray-800 pb-4">Compose your pizza</h1>
+  <h1 class="text-3xl font-light text-gray-800">Pizza Creator</h1>
+  <span class="text-gray-400 font-thin pb-4">Compose your pizza by selecting a size and some toppings!</span>
 
   <div class="flex flex-col flex-grow justify-between h-full">
-    <div class="flex-grow">
-      <h2 class="text-gray-400 font-medium py-2">Enter your details :</h2>
+    <div class="flex flex-col justify-center h-full">
+      <div class="">
+        <ng-container>
+          <pizza-size
+            [parent]="parent"
+            [sizes]="sizes"
+            formControlName="size">
+          </pizza-size>
+        </ng-container>
 
-      <div class="flex justify-between space-x-6 pt-2" formGroupName="details">
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="name">
-            <span>Name <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('name')?.hasError('required') && parent.get('details')?.get('name')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="name"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="name" type="text"
-            placeholder="John Smith">
-        </div>
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="email">
-            <span>Email <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('email')?.hasError('required') && parent.get('details')?.get('email')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="email"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="email" type="email"
-            placeholder="Enter your email">
-        </div>
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="confirm">
-            <span>Confirm <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('confirm')?.hasError('required') && parent.get('details')?.get('confirm')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="confirm"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="confirm" type="email"
-            placeholder="Confirm your email">
-        </div>
+        <ng-container>
+          <pizza-toppings
+            [toppings]="toppings"
+            formControlName="toppings">
+          </pizza-toppings>
+        </ng-container>
       </div>
-
-      <div class="flex justify-between space-x-6 pt-4" formGroupName="details">
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="name">
-            <span>Address <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('address')?.hasError('required') && parent.get('details')?.get('address')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="address"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="address" type="text"
-            placeholder="8 Rue Roger Camboulives">
-        </div>
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="email">
-            <span>City <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('city')?.hasError('required') && parent.get('details')?.get('city')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="city"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="city" type="text"
-            placeholder="Toulouse">
-        </div>
-        <div class="flex-1 flex-col">
-          <label
-            class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
-            for="confirm">
-            <span>Phone <span class="text-red-500">*</span></span>
-            <span *ngIf="parent && parent.get('details')?.get('phone')?.hasError('required') && parent.get('details')?.get('phone')?.touched"
-                  class="text-red-500 text-xs capitalize font-normal">
-              Field is required
-            </span>
-          </label>
-          <input
-            name="phone"
-            class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="phone" type="text"
-            placeholder="05 01 00 00 00">
-        </div>
-      </div>
-
-      <ng-container formGroupName="pizza">
-        <pizza-size
-          [parent]="parent"
-          [sizes]="sizes"
-          formControlName="size">
-        </pizza-size>
-      </ng-container>
-
-      <ng-container formGroupName="pizza">
-        <pizza-toppings
-          [toppings]="toppings"
-          formControlName="toppings">
-        </pizza-toppings>
-      </ng-container>
-
     </div>
     <button
       type="submit"

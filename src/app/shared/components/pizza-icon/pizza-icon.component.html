@@ -1,7 +1,9 @@
 <div
-  class="border-2 border-white rounded-full m-1"
-  [ngClass]="{'border-green-500': active}">
-  <div class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900 opacity-40">
+  class="rounded-full m-1 {{ !darkMode ? 'border-2' : '' }}"
+  [ngClass]="{'border-green-500': active, 'border-white': !active}">
+  <div
+    [ngClass]="{'opacity-70': darkMode, 'opacity-40': !darkMode}"
+    class="pizza {{ size.label }} m-1 relative rounded-full bg-yellow-400 border-2 border-red-900">
     <div
     class="line absolute bg-white transform origin-center"
     [ngClass]="{'rotate-45': size.label === 'large', 'rotate-30': size.label === 'medium', 'hidden': size.label === 'small'}">
