@@ -7,12 +7,12 @@
         01 - Customer infos
       </li>
       <li
-      [ngClass]="{'text-green-500 border-green-500': isActive('/cart/shipping-infos'), 'border-gray-300': !isActive('/cart/customer-infos')}"
+      [ngClass]="{'text-green-500 border-green-500': isActive('/cart/shipping-infos'), 'border-gray-300': !isActive('/cart/shipping-infos')}"
       class="flex-1 text-center pb-5 pt-2 px-4 border-b uppercase">
         02 - Shipping infos
       </li>
       <li
-      [ngClass]="{'text-green-500 border-green-500': isActive('/cart/payment-selection'), 'border-gray-300': !isActive('/cart/customer-infos')}"
+      [ngClass]="{'text-green-500 border-green-500': isActive('/cart/payment-selection'), 'border-gray-300': !isActive('/cart/payment-selection')}"
       class="flex-1 text-center pb-5 pt-2 px-4 border-b uppercase">
         03 - Payment selection
       </li>

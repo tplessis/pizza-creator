@@ -6,6 +6,7 @@ import { ItemsComponent } from './components/items/items.component';
 import { CustomerFormComponent } from './components/customer-form/customer-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
         redirectTo: 'customer-infos'
       },
       { path: 'customer-infos', component: CustomerFormComponent },
+      { path: 'shipping-infos', component: ShippingFormComponent },
     ]
   }
 ];
@@ -26,7 +28,8 @@ const routes: Routes = [
   declarations: [
     CartComponent,
     ItemsComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    ShippingFormComponent
   ],
   imports: [
     CommonModule,
