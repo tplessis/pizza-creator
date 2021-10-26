@@ -3,6 +3,8 @@
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/variants';
 
+@import '~mapbox-gl/dist/mapbox-gl.css';
+
 html, body {
   height: 100%;
 }

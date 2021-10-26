@@ -5,8 +5,7 @@ import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'pizza-customer-form',
-  templateUrl: './customer-form.component.html',
-  styleUrls: ['./customer-form.component.scss']
+  templateUrl: './customer-form.component.html'
 })
 export class CustomerFormComponent implements OnInit {
 

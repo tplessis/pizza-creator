@@ -1,1 +1,25 @@
-<p>shipping-form works!</p>
+<form (ngSubmit)="onSubmit($event)" [formGroup]="form" class="flex flex-col h-full">
+
+  <div class="flex-1 flex flex-col justify-center space-y-12">
+    <div class="flex border border-gray-300 rounded">
+      <div class="w-1/2"></div>
+      <div class="w-1/2">
+        <mgl-map
+          [style]="'mapbox://styles/mapbox/streets-v9'"
+          [zoom]="[9]"
+          [center]="[-74.5, 40]"
+        >
+        </mgl-map>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-between">
+    <pizza-back-button></pizza-back-button>
+    <button
+      type="submit"
+      class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
+      Continue to payment
+    </button>
+  </div>
+</form>
