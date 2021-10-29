@@ -32,7 +32,7 @@ export class CustomerFormComponent implements OnInit {
     console.log(this.form);
 
     if (this.form.valid) {
-      this.cartService.setUser(this.form.value.details);
+      this.cartService.setUser(this.form.value);
       this.router.navigate(['cart/shipping-infos']);
     }
   }

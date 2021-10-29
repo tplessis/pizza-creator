@@ -1,11 +1,18 @@
 <form (ngSubmit)="onSubmit($event)" [formGroup]="form" class="flex flex-col h-full">
 
   <div class="flex-1 flex flex-col justify-center space-y-12">
-    <div class="flex border border-gray-300 rounded">
-      <div class="w-1/2"></div>
+    <div class="flex border border-gray-300 rounded-lg h-64">
+      <div class="w-1/2 flex flex-col justify-center text-gray-500 space-y-2 p-4">
+        <span>{{ user?.firstname }} {{ user?.lastname }}</span>
+        <span>{{ user?.address }}</span>
+        <span>{{ user?.zipcode }} {{ user?.city }}</span>
+        <div>
+          <a href="#" class="block font-semibold text-green-500 hover:text-green-600 pt-4">Edit Adress</a>
+        </div>
+      </div>
       <div class="w-1/2">
         <mgl-map
-          [style]="'mapbox://styles/mapbox/streets-v9'"
+          [style]="'mapbox://styles/mapbox/light-v10'"
           [zoom]="[9]"
           [center]="[-74.5, 40]"
         >
@@ -16,10 +23,17 @@
 
   <div class="flex justify-between">
     <pizza-back-button></pizza-back-button>
-    <button
-      type="submit"
-      class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
-      Continue to payment
-    </button>
+    <div class="flex xl:space-x-6 md:space-x-4 space-x-2">
+      <a
+        [routerLink]="['/cart/customer-infos']"
+        class="rounded border border-gray-400 text-gray-500 font-semibold text-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 py-2 px-4">
+        Previous
+      </a>
+      <button
+        type="submit"
+        class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
+        Continue to payment
+      </button>
+    </div>
   </div>
 </form>

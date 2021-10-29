@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { IUser } from '@shared/models/user.interface';
+import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'pizza-shipping-form',
@@ -12,9 +14,12 @@ export class ShippingFormComponent implements OnInit {
 
   });
 
-  constructor(private fb: FormBuilder) { }
+  user: IUser;
+
+  constructor(private fb: FormBuilder, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.user = this.cartService.user;
   }
 
   onSubmit(form: FormGroup) {
