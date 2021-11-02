@@ -13,9 +13,8 @@
       <div class="w-1/2">
         <mgl-map
           [style]="'mapbox://styles/mapbox/light-v10'"
-          [zoom]="[9]"
-          [center]="[-74.5, 40]"
-        >
+          [zoom]="[12]"
+          [center]="($geocodedLocation | async) ?? undefined">
         </mgl-map>
       </div>
     </div>
