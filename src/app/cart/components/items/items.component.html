@@ -5,10 +5,12 @@
     <div
       *ngFor="let pizza of pizzas; let i = index;"
       class="flex items-center text-gray-50">
-      <pizza-icon
-        [size]="pizza.size"
-        [darkMode]="true">
-      </pizza-icon>
+      <div class="flex justify-center w-20">
+        <pizza-icon
+          [size]="pizza.size"
+          [darkMode]="true">
+        </pizza-icon>
+      </div>
       <div class="flex flex-1 flex-col justify-center">
         <span class="text-gray-200 font-semibold">{{ pizza.size.label | titlecase }} ({{ pizza.size.value }}")</span>
         <span class="text-gray-400">

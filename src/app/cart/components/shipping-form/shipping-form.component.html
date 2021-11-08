@@ -1,23 +1,63 @@
 <form (ngSubmit)="onSubmit($event)" [formGroup]="form" class="flex flex-col h-full">
 
-  <div class="flex-1 flex flex-col justify-center space-y-12">
-    <div class="flex border border-gray-300 rounded-lg h-64">
+  <div class="flex-1 flex flex-col justify-start">
+    <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping informations</h2>
+    <span class="text-gray-400 font-normal">Validate your shipping address.</span>
+
+    <div class="flex border border-gray-300 rounded-lg h-64 mt-4">
       <div class="w-1/2 flex flex-col justify-center text-gray-500 space-y-2 p-4">
         <span>{{ user?.firstname }} {{ user?.lastname }}</span>
         <span>{{ user?.address }}</span>
         <span>{{ user?.zipcode }} {{ user?.city }}</span>
         <div>
-          <a href="#" class="block font-semibold text-green-500 hover:text-green-600 pt-4">Edit Adress</a>
+          <a [routerLink]="['/cart/customer-infos']"
+          class="block font-semibold text-green-500 hover:text-green-600 pt-4">
+          Edit Adress
+        </a>
         </div>
       </div>
-      <div class="w-1/2">
+      <div class="w-1/2 border-l border-gray-300 overflow-hidden rounded-r-lg">
         <mgl-map
           [style]="'mapbox://styles/mapbox/light-v10'"
-          [zoom]="[12]"
-          [center]="($geocodedLocation | async) ?? undefined">
+          [zoom]="[14]"
+          [center]="center">
+          <mgl-marker
+            [lngLat]="center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </mgl-marker>
         </mgl-map>
       </div>
     </div>
+
+    <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping time</h2>
+    <span class="text-gray-400 font-normal">Choose an available time slot for your delivery.</span>
+
+    <div class="inline-flex flex-wrap gap-6 mt-4">
+      <label
+        [ngClass]="!isAvailable(deliveryDate) ? 'opacity-60' : 'cursor-pointer '" *ngFor="let deliveryDate of deliveryDates">
+        <input
+          type="radio"
+          formControlName="deliveryTime"
+          class="hidden"
+          [value]="deliveryDate"
+          [attr.disabled]="!isAvailable(deliveryDate) ? 'disabled' : null" >
+        <div
+          class="rounded p-4 border"
+          [ngClass]="{
+            'ring-1 ring-green-500  border-green-500 bg-green-50 text-green-800' : deliveryDate === form.get('deliveryTime')?.value,
+            'border-gray-300 text-gray-800': deliveryDate !== form.get('deliveryTime')?.value
+          }">
+          <h3 class="text-xl">{{ deliveryDate | date: 'dd MMM' }}</h3>
+          <span [ngClass]="deliveryDate === form.get('deliveryTime')?.value ? 'text-green-600' : 'text-gray-500'">
+            {{ deliveryDate | date: 'H' }}h
+          </span>
+        </div>
+      </label>
+    </div>
+
   </div>
 
   <div class="flex justify-between">

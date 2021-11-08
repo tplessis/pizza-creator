@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '@shared/models/user.interface';
 import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
-import { IGeocoderResult } from '@shared/models/geocoder.interface';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
 import { LngLatLike } from 'mapbox-gl';
+import { take } from 'rxjs/operators';
+import * as dayjs from 'dayjs'
 
 @Component({
   selector: 'pizza-shipping-form',
@@ -16,30 +15,54 @@ import { LngLatLike } from 'mapbox-gl';
 })
 export class ShippingFormComponent implements OnInit {
 
-  form = this.fb.group({
+  deliveryDates = [
+    dayjs().hour(11).minute(0).second(0).toDate(),
+    dayjs().hour(12).minute(0).second(0).toDate(),
+    dayjs().hour(13).minute(0).second(0).toDate(),
+    dayjs().hour(14).minute(0).second(0).toDate(),
+    dayjs().hour(19).minute(0).second(0).toDate(),
+    dayjs().hour(20).minute(0).second(0).toDate(),
+    dayjs().hour(21).minute(0).second(0).toDate(),
+    dayjs().hour(22).minute(0).second(0).toDate(),
+    dayjs().add(1, 'day').hour(11).minute(0).second(0).toDate(),
+    dayjs().add(1, 'day').hour(12).minute(0).second(0).toDate(),
+    dayjs().add(1, 'day').hour(13).minute(0).second(0).toDate(),
+    dayjs().add(1, 'day').hour(14).minute(0).second(0).toDate(),
+  ];
 
+  form = this.fb.group({
+    deliveryTime: [this.cartService.deliveryTime, Validators.required],
   });
 
   user: IUser;
-  $geocodedLocation: Observable<LngLatLike | undefined>;
+  center: LngLatLike | undefined = [2.454071, 46.279229];
 
   constructor(
     private fb: FormBuilder,
+    private cdr: ChangeDetectorRef,
     private cartService: CartService,
     private geocodingService: GeocodingService
   ) {
     this.user = this.cartService.user;
 
     if (this.user) {
-      this.$geocodedLocation = this.geocodingService.getGeocoding(
+      this.geocodingService.getGeocoding(
         this.user.address + ' ' + this.user.zipcode + ' ' + this.user.city
-      );
+      ).pipe(take(1))
+        .subscribe(location => {
+          this.center = location;
+          this.cdr.markForCheck();
+        });
     }
   }
 
   ngOnInit(): void {}
 
   onSubmit(form: FormGroup) {
+    console.log(this.form.value);
+  }
 
+  isAvailable(date: Date): boolean {
+    return dayjs(date).isAfter(dayjs());
   }
 }

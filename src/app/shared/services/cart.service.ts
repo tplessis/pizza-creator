@@ -4,7 +4,8 @@ import { IUser } from '../models/user.interface';
 
 enum sessionKeys {
   cart = 'pizza-cart',
-  user = 'pizza-user'
+  user = 'pizza-user',
+  deliveryTime = 'deliveryTime'
 };
 
 @Injectable({
@@ -13,6 +14,7 @@ enum sessionKeys {
 export class CartService {
   private _items: IPizza[];
   private _user: IUser;
+  private _deliveryTime: Date;
 
   get user(): IUser {
     return this._user;
@@ -20,6 +22,10 @@ export class CartService {
 
   get pizzas(): IPizza[] {
     return this._items;
+  }
+
+  get deliveryTime(): Date {
+    return this._deliveryTime;
   }
 
   constructor() {
@@ -43,6 +49,11 @@ export class CartService {
   setUser(user: IUser) {
     this._user = user;
     this.addObjectToSession(sessionKeys.user, user);
+  }
+
+  setDeliveryTime(date: Date) {
+    this._deliveryTime = date;
+    this.addObjectToSession(sessionKeys.deliveryTime, date);
   }
 
   clearCart() {
