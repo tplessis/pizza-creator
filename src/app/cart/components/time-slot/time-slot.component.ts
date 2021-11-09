@@ -12,8 +12,7 @@ export const PIZZA_TIME_SLOT_ACCESSOR = {
   selector: 'pizza-time-slot',
 
   providers: [PIZZA_TIME_SLOT_ACCESSOR],
-  templateUrl: './time-slot.component.html',
-  styleUrls: ['./time-slot.component.scss']
+  templateUrl: './time-slot.component.html'
 })
 export class TimeSlotComponent implements OnInit {
 

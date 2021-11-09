@@ -11,6 +11,7 @@ import { BackButtonComponent } from './components/back-button/back-button.compon
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from '../../environments/environment';
 import { TimeSlotComponent } from './components/time-slot/time-slot.component';
+import { TotalPriceComponent } from './components/total-price/total-price.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
     CustomerFormComponent,
     ShippingFormComponent,
     BackButtonComponent,
-    TimeSlotComponent
+    TimeSlotComponent,
+    TotalPriceComponent
   ],
   imports: [
     CommonModule,

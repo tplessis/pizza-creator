@@ -1,0 +1,14 @@
+<div class="flex flex-col border-t border-gray-500 pt-4 mt-2">
+  <div class="flex w-full justify-between">
+    <span class="text-gray-300 font-thin">Subtotal</span>
+    <span class="text-gray-400 font-medium">{{ totalPrice | currency:'EUR':'symbol':'2.2-2' }}</span>
+  </div>
+  <div class="flex w-full justify-between mt-1">
+    <span class="text-gray-300 font-thin">Shipping</span>
+    <span class="text-gray-400 font-medium">{{ shippingPrice | currency:'EUR':'symbol':'2.2-2' }}</span>
+  </div>
+  <div class="flex w-full justify-between text-xl border-t-2 border-gray-500 mt-4 pt-3">
+    <span class="text-gray-300 font-base">Total</span>
+    <span class="text-gray-50 font-medium">{{ (totalPrice + shippingPrice) | currency:'EUR':'symbol':'2.2-2' }}</span>
+  </div>
+</div>

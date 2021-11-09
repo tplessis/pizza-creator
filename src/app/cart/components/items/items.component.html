@@ -1,5 +1,4 @@
 <div
-  class="cart-items-container absolute top-18 left-4 flex flex-col pt-4 pr-8 overflow-y-auto"
   [ngClass]="{'space-y-6': pizzas.length > 0}">
   <ng-container *ngIf="pizzas.length > 0; else emptyState">
     <div
@@ -11,9 +10,9 @@
           [darkMode]="true">
         </pizza-icon>
       </div>
-      <div class="flex flex-1 flex-col justify-center">
-        <span class="text-gray-200 font-semibold">{{ pizza.size.label | titlecase }} ({{ pizza.size.value }}")</span>
-        <span class="text-gray-400">
+      <div class="flex flex-1 flex-col justify-center font-thin">
+        <span class="text-gray-200">{{ pizza.size.label | titlecase }} ({{ pizza.size.value }}")</span>
+        <span class="text-gray-400 text-sm">
           <ng-container *ngFor="let topping of pizza.toppings; let last = last;">
             {{ topping.label }}<ng-container *ngIf="!last">, </ng-container><ng-container *ngIf="last">.</ng-container>
           </ng-container>
@@ -31,7 +30,7 @@
   </ng-container>
   <ng-template #emptyState>
     <h3 class="text-gray-200 font-semibold mt-8 text-center">Your cart is empty</h3>
-    <span class="text-gray-400 mt-0 text-center">Looks like you haven't added <br/> anything to your cart yet.</span>
+    <span class="inline-block text-gray-400 mt-0 text-center w-full">Looks like you haven't added <br/> anything to your cart yet.</span>
     <a routerLink="/" class="inline-block w-full items-center text-green-500 hover:text-green-400 text-center mt-4">Add your pizza</a>
   </ng-template>
 </div>
