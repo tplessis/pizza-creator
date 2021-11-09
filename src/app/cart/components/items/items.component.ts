@@ -3,7 +3,8 @@ import { IPizza } from '../../../shared/models/pizza.interface';
 
 @Component({
   selector: 'pizza-items',
-  templateUrl: './items.component.html'
+  templateUrl: './items.component.html',
+  styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
 
