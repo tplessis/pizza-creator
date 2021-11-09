@@ -35,28 +35,10 @@
     <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping time</h2>
     <span class="text-gray-400 font-normal">Choose an available time slot for your delivery.</span>
 
-    <div class="inline-flex flex-wrap gap-6 mt-4">
-      <label
-        [ngClass]="!isAvailable(deliveryDate) ? 'opacity-60' : 'cursor-pointer '" *ngFor="let deliveryDate of deliveryDates">
-        <input
-          type="radio"
-          formControlName="deliveryTime"
-          class="hidden"
-          [value]="deliveryDate"
-          [attr.disabled]="!isAvailable(deliveryDate) ? 'disabled' : null" >
-        <div
-          class="rounded p-4 border"
-          [ngClass]="{
-            'ring-1 ring-green-500  border-green-500 bg-green-50 text-green-800' : deliveryDate === form.get('deliveryTime')?.value,
-            'border-gray-300 text-gray-800': deliveryDate !== form.get('deliveryTime')?.value
-          }">
-          <h3 class="text-xl">{{ deliveryDate | date: 'dd MMM' }}</h3>
-          <span [ngClass]="deliveryDate === form.get('deliveryTime')?.value ? 'text-green-600' : 'text-gray-500'">
-            {{ deliveryDate | date: 'H' }}h
-          </span>
-        </div>
-      </label>
-    </div>
+    <pizza-time-slot
+      formControlName="deliveryTime"
+      [deliveryDates]="deliveryDates">
+    </pizza-time-slot>
 
   </div>
 

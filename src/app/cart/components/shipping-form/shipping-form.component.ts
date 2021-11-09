@@ -61,8 +61,4 @@ export class ShippingFormComponent implements OnInit {
   onSubmit(form: FormGroup) {
     console.log(this.form.value);
   }
-
-  isAvailable(date: Date): boolean {
-    return dayjs(date).isAfter(dayjs());
-  }
 }
