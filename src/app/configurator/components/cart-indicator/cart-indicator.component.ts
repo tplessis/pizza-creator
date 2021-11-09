@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IPizza } from '@shared/models/pizza.interface';
 
 @Component({
   selector: 'pizza-cart-indicator',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-indicator.component.scss']
 })
 export class CartIndicatorComponent implements OnInit {
+
+  @Input()
+  pizzas: Array<IPizza>;
 
   constructor() { }
 

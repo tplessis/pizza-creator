@@ -24,6 +24,9 @@ export class ViewerComponent implements OnInit, AfterContentInit {
   @Input()
   pizza: IPizza;
 
+  @Input()
+  pizzas: Array<IPizza>;
+
   active = false;
 
   get pizzaPrice(): number {

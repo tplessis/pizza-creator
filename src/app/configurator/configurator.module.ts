@@ -9,6 +9,7 @@ import { ToppingsComponent } from './components/toppings/toppings.component';
 import { CartIndicatorComponent } from './components/cart-indicator/cart-indicator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     SharedModule
   ]
 })
