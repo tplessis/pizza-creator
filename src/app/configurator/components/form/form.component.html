@@ -1,10 +1,9 @@
 <form (ngSubmit)="onSubmit($event)" [formGroup]="parent" class="flex flex-col h-full p-6">
-  <h1 class="text-3xl font-light text-gray-800">Pizza Creator</h1>
-  <span class="text-gray-400 font-thin pb-4">Compose your pizza by selecting a size and some toppings!</span>
-
   <div class="flex flex-col flex-grow justify-between h-full">
-    <div class="flex flex-col justify-center h-full">
-      <div class="">
+    <div class="flex flex-col h-full">
+      <h1 class="text-3xl font-light text-gray-800">Pizza Creator</h1>
+      <span class="text-gray-400 font-thin pb-8">Compose your pizza by selecting a size and some toppings!</span>
+      <div>
         <ng-container>
           <pizza-size
             [parent]="parent"
