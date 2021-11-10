@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './containers/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ItemsComponent } from './components/items/items.component';
-import { CustomerFormComponent } from './components/customer-form/customer-form.component';
+import { CustomerFormComponent } from './containers/customer-form/customer-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../shared/shared.module';
-import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
+import { ShippingFormComponent } from './containers/shipping-form/shipping-form.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
-import { environment } from '../../environments/environment';
 import { TimeSlotComponent } from './components/time-slot/time-slot.component';
 import { TotalPriceComponent } from './components/total-price/total-price.component';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { environment } from '@env/environment';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Routes = [
   {
