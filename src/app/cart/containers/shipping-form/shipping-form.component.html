@@ -1,4 +1,6 @@
-<form (ngSubmit)="onSubmit($event)" [formGroup]="form" class="flex flex-col h-full">
+<form (ngSubmit)="onSubmit($event)"
+  [formGroup]="form"
+  class="flex flex-col h-full">
 
   <div class="flex-1 flex flex-col justify-start">
     <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping informations</h2>
@@ -11,21 +13,29 @@
         <span>{{ user?.zipcode }} {{ user?.city }}</span>
         <div>
           <a [routerLink]="['/cart/customer-infos']"
-          class="block font-semibold text-green-500 hover:text-green-600 pt-4">
-          Edit Adress
-        </a>
+            class="block font-semibold text-green-500 hover:text-green-600 pt-4">
+            Edit Adress
+          </a>
         </div>
       </div>
       <div class="w-1/2 border-l border-gray-300 overflow-hidden rounded-r-lg">
-        <mgl-map
-          [style]="'mapbox://styles/mapbox/light-v10'"
+        <mgl-map [style]="'mapbox://styles/mapbox/light-v10'"
           [zoom]="[14]"
           [center]="center">
-          <mgl-marker
-            [lngLat]="center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          <mgl-marker [lngLat]="center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-green-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </mgl-marker>
         </mgl-map>
@@ -35,8 +45,7 @@
     <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping time</h2>
     <span class="text-gray-400 font-normal">Choose an available time slot for your delivery.</span>
 
-    <pizza-time-slot
-      formControlName="deliveryTime"
+    <pizza-time-slot formControlName="deliveryTime"
       [deliveryDates]="deliveryDates">
     </pizza-time-slot>
 
@@ -45,13 +54,11 @@
   <div class="flex justify-between">
     <pizza-back-button></pizza-back-button>
     <div class="flex xl:space-x-6 md:space-x-4 space-x-2">
-      <a
-        [routerLink]="['/cart/customer-infos']"
+      <a [routerLink]="['/cart/customer-infos']"
         class="rounded border border-gray-400 text-gray-500 font-semibold text-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 py-2 px-4">
         Previous
       </a>
-      <button
-        type="submit"
+      <button type="submit"
         class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
         Continue to payment
       </button>

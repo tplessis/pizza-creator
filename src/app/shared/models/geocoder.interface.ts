@@ -11,7 +11,7 @@ export interface IGeocoderFeature {
   type: 'Feature';
   place_type: Array<string>;
   relevance: number;
-  properties: Object;
+  properties: any;
   address: string;
   text: string;
   place_name: string;

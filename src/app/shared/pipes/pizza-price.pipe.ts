@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IPizza } from '../models/pizza.interface';
 
-@Pipe({name: 'pizzaPrice'})
+@Pipe({ name: 'pizzaPrice' })
 export class PizzaPricePipe implements PipeTransform {
   transform(pizza: IPizza): number {
     if (!pizza) {

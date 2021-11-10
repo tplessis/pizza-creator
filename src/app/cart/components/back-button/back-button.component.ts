@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './back-button.component.html'
 })
 export class BackButtonComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

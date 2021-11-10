@@ -9,7 +9,6 @@ import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-
   @Input()
   parent: FormGroup;
 
@@ -22,14 +21,12 @@ export class FormComponent implements OnInit {
   @Output()
   submit = new EventEmitter<FormGroup>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(event) {
     event.stopPropagation();
     this.submit.emit(this.parent);
   }
-
 }

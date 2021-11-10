@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
     <div class="h-full">
       <router-outlet></router-outlet>
     </div>
-  `,
+  `
 })
 export class AppComponent {}

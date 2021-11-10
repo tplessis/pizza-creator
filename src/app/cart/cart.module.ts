@@ -24,7 +24,7 @@ const routes: Routes = [
         redirectTo: 'customer-infos'
       },
       { path: 'customer-infos', component: CustomerFormComponent },
-      { path: 'shipping-infos', component: ShippingFormComponent },
+      { path: 'shipping-infos', component: ShippingFormComponent }
     ]
   }
 ];
@@ -50,4 +50,4 @@ const routes: Routes = [
     SharedModule
   ]
 })
-export class CartModule { }
+export class CartModule {}

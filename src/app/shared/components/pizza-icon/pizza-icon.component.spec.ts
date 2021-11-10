@@ -8,9 +8,8 @@ describe('PizzaIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PizzaIconComponent ]
-    })
-    .compileComponents();
+      declarations: [PizzaIconComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

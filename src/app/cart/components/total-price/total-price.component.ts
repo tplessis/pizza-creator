@@ -6,16 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./total-price.component.scss']
 })
 export class TotalPriceComponent implements OnInit {
-
   @Input()
   shippingPrice: number;
 
   @Input()
   totalPrice: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -6,7 +6,7 @@ import { ConfiguratorComponent } from './configurator.component';
 
 export function findComponent<T>(
   fixture: ComponentFixture<T>,
-  selector: string,
+  selector: string
 ): DebugElement {
   return fixture.debugElement.query(By.css(selector));
 }
@@ -17,12 +17,9 @@ describe('ConfiguratorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        ReactiveFormsModule
-      ],
-      declarations: [ ConfiguratorComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule],
+      declarations: [ConfiguratorComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

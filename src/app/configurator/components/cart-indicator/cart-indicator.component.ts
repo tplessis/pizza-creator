@@ -7,13 +7,10 @@ import { IPizza } from '@shared/models/pizza.interface';
   styleUrls: ['./cart-indicator.component.scss']
 })
 export class CartIndicatorComponent implements OnInit {
-
   @Input()
   pizzas: Array<IPizza>;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

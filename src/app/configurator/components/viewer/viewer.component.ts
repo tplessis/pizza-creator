@@ -5,11 +5,17 @@ import { IPizza } from '@shared/models/pizza.interface';
 export const DROP_ANIMATION = trigger('drop', [
   transition(':enter', [
     style({ transform: 'translateY(-200px)', opacity: 0 }),
-    animate('300ms cubic-bezier(1.000, 0.000, 0.000, 1.000)', style({ transform: 'translateY(0)', opacity: 1 }))
+    animate(
+      '300ms cubic-bezier(1.000, 0.000, 0.000, 1.000)',
+      style({ transform: 'translateY(0)', opacity: 1 })
+    )
   ]),
   transition(':leave', [
     style({ transform: 'translateY(0)', opacity: 1 }),
-    animate('200ms cubic-bezier(1.000, 0.000, 0.000, 1.000)', style({ transform: 'translateY(-200px)', opacity: 0 }))
+    animate(
+      '200ms cubic-bezier(1.000, 0.000, 0.000, 1.000)',
+      style({ transform: 'translateY(-200px)', opacity: 0 })
+    )
   ])
 ]);
 
@@ -20,7 +26,6 @@ export const DROP_ANIMATION = trigger('drop', [
   styleUrls: ['./viewer.component.scss']
 })
 export class ViewerComponent implements OnInit, AfterContentInit {
-
   @Input()
   pizza: IPizza;
 
@@ -43,10 +48,9 @@ export class ViewerComponent implements OnInit, AfterContentInit {
     }, this.pizza?.size?.price || 0);
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     setTimeout(() => {

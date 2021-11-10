@@ -1,12 +1,13 @@
 <div class="relative h-full">
   <div class="table-side"></div>
   <div class="table"></div>
-  <div class="pizza" [ngClass]="{'active': active}">
+  <div class="pizza"
+    [ngClass]="{'active': active}">
     <div class="board"></div>
     <div class="base"></div>
-    <div class="toppings" *ngIf="pizza">
-      <div
-        *ngFor="let topping of pizza.toppings; let i = index;"
+    <div class="toppings"
+      *ngIf="pizza">
+      <div *ngFor="let topping of pizza.toppings; let i = index;"
         [style.zIndex]="i"
         @drop>
         <div class="topping {{ topping.label }}"></div>

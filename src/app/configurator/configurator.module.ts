@@ -29,4 +29,4 @@ import { RouterModule } from '@angular/router';
     SharedModule
   ]
 })
-export class ConfiguratorModule { }
+export class ConfiguratorModule {}

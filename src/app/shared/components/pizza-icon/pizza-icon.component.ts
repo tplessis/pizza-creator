@@ -16,5 +16,5 @@ export class PizzaIconComponent {
   @Input()
   darkMode = false;
 
-  constructor() { }
+  constructor() {}
 }

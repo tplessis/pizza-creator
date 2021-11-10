@@ -1,5 +1,9 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormGroup,
+  NG_VALUE_ACCESSOR
+} from '@angular/forms';
 import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
 
 export const PIZZA_TOPPINGS_ACCESSOR = {
@@ -15,26 +19,25 @@ export const PIZZA_TOPPINGS_ACCESSOR = {
   styleUrls: ['./toppings.component.scss']
 })
 export class ToppingsComponent implements ControlValueAccessor {
-
   @Input()
   parent: FormGroup;
 
   @Input()
   toppings: Array<IPizzaTopping>;
 
-  private onModelChange: Function = () => {};
-  private onTouch: Function;
+  private onModelChange: any = () => {};
+  private onTouch: () => void;
 
   value: Array<IPizzaTopping> = [];
-  focused!: IPizzaTopping|null;
+  focused!: IPizzaTopping | null;
 
-  constructor() { }
+  constructor() {}
 
-  registerOnChange(fn: Function) {
+  registerOnChange(fn: any) {
     this.onModelChange = fn;
   }
 
-  registerOnTouched(fn: Function) {
+  registerOnTouched(fn: any) {
     this.onTouch = fn;
   }
 
@@ -52,12 +55,11 @@ export class ToppingsComponent implements ControlValueAccessor {
   }
 
   onBlur(value: IPizzaTopping) {
-    this.focused = null;
+    this.focused = value;
   }
 
   onFocus(value: IPizzaTopping) {
     this.focused = value;
     this.onTouch();
   }
-
 }

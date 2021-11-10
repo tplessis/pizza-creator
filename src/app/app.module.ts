@@ -12,7 +12,7 @@ registerLocaleData(localeFr);
 const routes: Routes = [
   {
     path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule)
   },
   {
     path: '',
@@ -21,9 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     ConfiguratorModule,
@@ -31,10 +29,8 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules
     })
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'fr'},
-  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
-export class AppModule { }
+export class AppModule {}

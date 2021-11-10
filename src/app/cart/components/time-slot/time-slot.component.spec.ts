@@ -8,9 +8,8 @@ describe('TimeSlotComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimeSlotComponent ]
-    })
-    .compileComponents();
+      declarations: [TimeSlotComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

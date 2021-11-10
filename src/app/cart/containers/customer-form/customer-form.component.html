@@ -1,4 +1,6 @@
-<form (ngSubmit)="onSubmit($event)" [formGroup]="form" class="flex flex-col h-full">
+<form (ngSubmit)="onSubmit($event)"
+  [formGroup]="form"
+  class="flex flex-col h-full">
 
   <div class="flex-1 flex flex-col justify-start space-y-12">
     <div>
@@ -11,15 +13,15 @@
             for="firstname">
             <span>Firstname <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('firstname')?.hasError('required') && form.get('firstname')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
           </label>
-          <input
-            id="firstname"
+          <input id="firstname"
             name="firstname"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="firstname" type="text"
+            formControlName="firstname"
+            type="text"
             placeholder="John">
         </div>
         <div class="flex-1 flex-col">
@@ -28,15 +30,15 @@
             for="lastname">
             <span>Lastname <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('lastname')?.hasError('required') && form.get('lastname')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
           </label>
-          <input
-            id="lastname"
+          <input id="lastname"
             name="lastname"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="lastname" type="text"
+            formControlName="lastname"
+            type="text"
             placeholder="Smith">
         </div>
       </div>
@@ -48,19 +50,19 @@
             for="email">
             <span>Email <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
             <span *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Invalid email format
             </span>
           </label>
-          <input
-            id="email"
+          <input id="email"
             name="email"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="email" type="email"
+            formControlName="email"
+            type="email"
             placeholder="Enter your email">
         </div>
         <div class="flex-1 flex-col">
@@ -69,19 +71,19 @@
             for="phone">
             <span>Phone <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
             <span *ngIf="form.get('phone')?.hasError('pattern') && form.get('phone')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Innvalid phone number format
             </span>
           </label>
-          <input
-            id="phone"
+          <input id="phone"
             name="phone"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="phone" type="text"
+            formControlName="phone"
+            type="text"
             placeholder="05 01 00 00 00">
         </div>
       </div>
@@ -97,15 +99,15 @@
             for="address">
             <span>Address <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('address')?.hasError('required') && form.get('address')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
           </label>
-          <input
-            id="address"
+          <input id="address"
             name="address"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="address" type="text"
+            formControlName="address"
+            type="text"
             placeholder="8 Rue Roger Camboulives">
         </div>
       </div>
@@ -117,15 +119,15 @@
             for="zipcode">
             <span>Postal code <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('zipcode')?.hasError('required') && form.get('zipcode')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
           </label>
-          <input
-            id="zipcode"
+          <input id="zipcode"
             name="zipcode"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="zipcode" type="text"
+            formControlName="zipcode"
+            type="text"
             placeholder="31000">
         </div>
         <div class="flex-1 flex-col">
@@ -134,15 +136,15 @@
             for="city">
             <span>City <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('city')?.hasError('required') && form.get('city')?.touched"
-                  class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal">
               Field is required
             </span>
           </label>
-          <input
-            id="city"
+          <input id="city"
             name="city"
             class="focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300"
-            formControlName="city" type="text"
+            formControlName="city"
+            type="text"
             placeholder="Toulouse">
         </div>
       </div>
@@ -151,8 +153,7 @@
 
   <div class="flex justify-between">
     <pizza-back-button></pizza-back-button>
-    <button
-      type="submit"
+    <button type="submit"
       class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
       Continue to shipping
     </button>

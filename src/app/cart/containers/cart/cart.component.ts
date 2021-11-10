@@ -9,12 +9,11 @@ import { CartService } from '@shared/services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-
   pizzas: IPizza[];
-  shippingPrice : number;
-  totalPrice : number;
+  shippingPrice: number;
+  totalPrice: number;
 
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
     this.getCartData();

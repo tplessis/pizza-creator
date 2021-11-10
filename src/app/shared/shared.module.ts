@@ -5,17 +5,8 @@ import { PizzaIconComponent } from './components/pizza-icon/pizza-icon.component
 import { PizzaPricePipe } from './pipes/pizza-price.pipe';
 
 @NgModule({
-  declarations: [
-    PizzaIconComponent,
-    PizzaPricePipe
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-  ],
-  exports: [
-    PizzaIconComponent,
-    PizzaPricePipe
-  ]
+  declarations: [PizzaIconComponent, PizzaPricePipe],
+  imports: [CommonModule, HttpClientModule],
+  exports: [PizzaIconComponent, PizzaPricePipe]
 })
-export class SharedModule { }
+export class SharedModule {}

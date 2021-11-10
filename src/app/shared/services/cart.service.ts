@@ -6,7 +6,7 @@ enum sessionKeys {
   cart = 'pizza-cart',
   user = 'pizza-user',
   deliveryTime = 'deliveryTime'
-};
+}
 
 @Injectable({
   providedIn: 'root'

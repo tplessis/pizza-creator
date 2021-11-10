@@ -1,11 +1,16 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '@shared/models/user.interface';
 import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
 import { LngLatLike } from 'mapbox-gl';
 import { take } from 'rxjs/operators';
-import * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'pizza-shipping-form',
@@ -14,7 +19,6 @@ import * as dayjs from 'dayjs'
   styles: ['mgl-map { height: 100%; width: 100%;}']
 })
 export class ShippingFormComponent implements OnInit {
-
   deliveryDates = [
     dayjs().hour(11).minute(0).second(0).toDate(),
     dayjs().hour(12).minute(0).second(0).toDate(),
@@ -27,11 +31,11 @@ export class ShippingFormComponent implements OnInit {
     dayjs().add(1, 'day').hour(11).minute(0).second(0).toDate(),
     dayjs().add(1, 'day').hour(12).minute(0).second(0).toDate(),
     dayjs().add(1, 'day').hour(13).minute(0).second(0).toDate(),
-    dayjs().add(1, 'day').hour(14).minute(0).second(0).toDate(),
+    dayjs().add(1, 'day').hour(14).minute(0).second(0).toDate()
   ];
 
   form = this.fb.group({
-    deliveryTime: [this.cartService.deliveryTime, Validators.required],
+    deliveryTime: [this.cartService.deliveryTime, Validators.required]
   });
 
   user: IUser;
@@ -46,10 +50,12 @@ export class ShippingFormComponent implements OnInit {
     this.user = this.cartService.user;
 
     if (this.user) {
-      this.geocodingService.getGeocoding(
-        this.user.address + ' ' + this.user.zipcode + ' ' + this.user.city
-      ).pipe(take(1))
-        .subscribe(location => {
+      this.geocodingService
+        .getGeocoding(
+          this.user.address + ' ' + this.user.zipcode + ' ' + this.user.city
+        )
+        .pipe(take(1))
+        .subscribe((location) => {
           this.center = location;
           this.cdr.markForCheck();
         });

@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs';
 
 export const PIZZA_TIME_SLOT_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -15,26 +15,24 @@ export const PIZZA_TIME_SLOT_ACCESSOR = {
   templateUrl: './time-slot.component.html'
 })
 export class TimeSlotComponent implements OnInit {
-
   @Input()
   deliveryDates: Array<Date>;
 
-  private onModelChange: Function = () => {};
-  private onTouch: Function;
+  private onModelChange: (_value: Date) => any;
+  private onTouch: () => void;
 
   value: Date;
   focused: Date | undefined;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  registerOnChange(fn: Function) {
+  registerOnChange(fn: any) {
     this.onModelChange = fn;
   }
 
-  registerOnTouched(fn: Function) {
+  registerOnTouched(fn: any) {
     this.onTouch = fn;
   }
 
@@ -48,7 +46,7 @@ export class TimeSlotComponent implements OnInit {
   }
 
   onBlur(value: Date) {
-    this.focused = undefined;
+    this.focused = value;
   }
 
   onFocus(value: Date) {

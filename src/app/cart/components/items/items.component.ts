@@ -6,14 +6,13 @@ import { IPizza } from '../../../shared/models/pizza.interface';
   templateUrl: './items.component.html'
 })
 export class ItemsComponent implements OnInit {
-
   @Input()
   pizzas: IPizza[];
 
   @Output()
   removePizza = new EventEmitter<IPizza>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {}
 

@@ -1,5 +1,9 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormGroup,
+  NG_VALUE_ACCESSOR
+} from '@angular/forms';
 import { IPizzaSize } from '@shared/models/pizza-size.interface';
 
 export const PIZZA_SIZE_ACCESSOR = {
@@ -15,26 +19,25 @@ export const PIZZA_SIZE_ACCESSOR = {
   styleUrls: ['./size.component.scss']
 })
 export class SizeComponent implements ControlValueAccessor {
-
   @Input()
   parent: FormGroup;
 
   @Input()
   sizes: Array<IPizzaSize>;
 
-  private onModelChange: Function = () => {};
-  private onTouch: Function;
+  private onModelChange: any = () => {};
+  private onTouch: () => void;
 
   value: IPizzaSize;
   focused: IPizzaSize | undefined;
 
-  constructor() { }
+  constructor() {}
 
-  registerOnChange(fn: Function) {
+  registerOnChange(fn: any) {
     this.onModelChange = fn;
   }
 
-  registerOnTouched(fn: Function) {
+  registerOnTouched(fn: any) {
     this.onTouch = fn;
   }
 
@@ -48,7 +51,7 @@ export class SizeComponent implements ControlValueAccessor {
   }
 
   onBlur(value: IPizzaSize) {
-    this.focused = undefined;
+    this.focused = value;
   }
 
   onFocus(value: IPizzaSize) {

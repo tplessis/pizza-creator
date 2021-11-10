@@ -1,8 +1,7 @@
 <div class="inline-flex flex-wrap gap-6 mt-4">
   <label *ngFor="let deliveryDate of deliveryDates"
-    [ngClass]="!isAvailable(deliveryDate) ? 'opacity-60' : 'cursor-pointer '" >
-    <input
-      type="radio"
+    [ngClass]="!isAvailable(deliveryDate) ? 'opacity-60' : 'cursor-pointer '">
+    <input type="radio"
       name="deliveryTime"
       class="hidden"
       [attr.value]="deliveryDate"
@@ -10,9 +9,8 @@
       (change)="onChange(deliveryDate)"
       (focus)="onFocus(deliveryDate)"
       [attr.checked]="value === deliveryDate"
-      [attr.disabled]="!isAvailable(deliveryDate) ? 'disabled' : null" >
-    <div
-      class="rounded p-4 border"
+      [attr.disabled]="!isAvailable(deliveryDate) ? 'disabled' : null">
+    <div class="rounded p-4 border"
       [ngClass]="{
         'ring-1 ring-green-500  border-green-500 bg-green-50 text-green-800' : deliveryDate === value,
         'border-gray-300 text-gray-800': deliveryDate !== value
