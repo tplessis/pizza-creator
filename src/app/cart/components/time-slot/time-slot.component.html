@@ -1,4 +1,4 @@
-<div class="inline-flex flex-wrap gap-6 mt-4">
+<div class="inline-flex flex-wrap 2xl:gap-6 gap-2 mt-4">
   <label *ngFor="let deliveryDate of deliveryDates"
     [ngClass]="!isAvailable(deliveryDate) ? 'opacity-60' : 'cursor-pointer '">
     <input type="radio"
@@ -10,13 +10,15 @@
       (focus)="onFocus(deliveryDate)"
       [attr.checked]="value === deliveryDate"
       [attr.disabled]="!isAvailable(deliveryDate) ? 'disabled' : null">
-    <div class="rounded p-4 border"
+    <div class="rounded 2xl:p-4 p-2 border"
       [ngClass]="{
         'ring-1 ring-green-500  border-green-500 bg-green-50 text-green-800' : deliveryDate === value,
-        'border-gray-300 text-gray-800': deliveryDate !== value
+        'border-gray-300 text-gray-800': deliveryDate !== value,
+        'hover:border-green-500': (deliveryDate !== value && isAvailable(deliveryDate))
       }">
-      <h3 class="text-xl">{{ deliveryDate | date: 'dd MMM' }}</h3>
-      <span [ngClass]="deliveryDate === value ? 'text-green-600' : 'text-gray-500'">
+      <h3 class="2xl:text-xl text-lg">{{ deliveryDate | date: 'dd MMM' }}</h3>
+      <span [ngClass]="deliveryDate === value ? 'text-green-600' : 'text-gray-500'"
+        class="text-sm 2xl:text-base">
         {{ deliveryDate | date: 'H' }}h
       </span>
     </div>

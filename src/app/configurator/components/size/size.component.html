@@ -2,16 +2,14 @@
   <h2 class="text-gray-400 text-sm font-medium uppercase">Select pizza size :</h2>
   <span class="text-red-500 pl-1 pt-1">*</span>
   <span *ngIf="parent && parent?.get('size')?.hasError('required') && parent.get('size')?.touched"
-                  class="text-red-500 text-xs font-normal pt-1 pl-2">
-              Field is required
-            </span>
+    class="text-red-500 text-xs font-normal pt-1 pl-2">
+    Field is required
+  </span>
 </div>
-<div class="flex justify-between space-x-6">
-  <label
-    *ngFor="let size of sizes; let i = index;"
-    class="group flex flex-grow items-center cursor-pointer">
-    <input
-      type="radio"
+<div class="flex flex-wrap md:flex-nowrap md:justify-between md:space-x-6">
+  <label *ngFor="let size of sizes; let i = index;"
+    class="group flex md:flex-row flex-col flex-grow items-center cursor-pointer">
+    <input type="radio"
       name="size"
       [attr.value]="size.value"
       (blur)="onBlur(size)"
@@ -19,14 +17,13 @@
       (focus)="onFocus(size)"
       [attr.checked]="value === size"
       class="hidden w-0 h-0">
-    <pizza-icon
-      [active]="value === size"
+    <pizza-icon [active]="value === size"
       [size]="size">
     </pizza-icon>
-    <span
-      class="block text-sm ml-2"
+    <span class="block 2xl:text-base text-sm ml-2"
       [ngClass]="value === size ? 'text-green-500 font-semibold' : 'font-normal text-gray-600'">
-      {{ size.label | titlecase }} ({{ size.value }}")
+      <span class="block md:inline-block">{{ size.label | titlecase }}</span>
+      <span> ({{ size.value }}")</span>
     </span>
   </label>
 </div>

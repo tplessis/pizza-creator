@@ -21,21 +21,21 @@
 
 .pizza {
   width: 100%;
-  height: 342px;
+  height: 280px;
   position: absolute;
   z-index: 1;
   transform: translate3d(-530px, -300px, 0);
   transition: transform 0.2s;
 
   &.active {
-    transform: translateX(50%) translateX(-250px) translateY(25%);
+    transform: translateX(50%) translateX(-210px) translateY(10%);
   }
 
   .board {
     background: url("/assets/images/board.svg") no-repeat 0 20px;
     background-size: contain;
-    width: 500px;
-    height: 342px;
+    width: 400px;
+    height: 274px;
     position: absolute;
     z-index: 1;
     top: 30px;
@@ -45,19 +45,19 @@
   .base {
     background: url("/assets/images/base.svg") no-repeat;
     background-size: contain;
-    width: 390px;
-    height: 322px;
+    width: 312px;
+    height: 258px;
     position: absolute;
-    left: 90px;
-    top: 30px;
+    left: 70px;
+    top: 35px;
     z-index: 2;
   }
 
   .toppings {
-    width: 352px;
-    height: 190px;
+    width: 282px;
+    height: 152px;
     position: absolute;
-    left: 112px;
+    left: 85px;
     top: 46px;
     z-index: 3;
   }
@@ -69,8 +69,8 @@
 
     &.anchovy {
       background-image: url("/assets/images/anchovy.svg");
-      width: 51px;
-      height: 37px;
+      width: 41px;
+      height: 31px;
 
       &:nth-child(1) {
         left: 140px;
@@ -81,7 +81,7 @@
         top: 82px;
       }
       &:nth-child(3) {
-        left: 263px;
+        left: 243px;
         top: 95px;
       }
       &:nth-child(4), &:nth-child(5) {
@@ -90,20 +90,20 @@
     }
     &.bacon {
       background-image: url("/assets/images/bacon.svg");
-      width: 56px;
-      height: 31px;
+      width: 46px;
+      height: 55px;
 
       &:nth-child(1) {
         left: 124px;
-        top: 50px;
+        top: 11px;
       }
       &:nth-child(2) {
         left: 39px;
         top: 100px;
       }
       &:nth-child(3) {
-        left: 132px;
-        top: 86px;
+        left: 63px;
+        top: 43px;
       }
       &:nth-child(4) {
         left: 199px;
@@ -111,7 +111,7 @@
       }
       &:nth-child(5) {
         left: 140px;
-        top: 154px;
+        top: 123px;
       }
     }
     &.basil {
@@ -120,16 +120,16 @@
       height: 32px;
 
       &:nth-child(1) {
-        left: 136px;
-        top: 63px;
+        left: 71px;
+        top: 30px;
       }
       &:nth-child(2) {
-        left: 126px;
-        top: 127px;
+        left: 94px;
+        top: 99px;
       }
       &:nth-child(3) {
-        left: 222px;
-        top: 98px;
+        left: 187px;
+        top: 42px;
       }
       &:nth-child(4), &:nth-child(5) {
         display: none;
@@ -137,46 +137,46 @@
     }
     &.chili {
       background-image: url("/assets/images/chili.svg");
-      width: 63px;
-      height: 35px;
+      width: 57px;
+      height: 31px;
 
       &:nth-child(1) {
-        left: 150px;
-        top: 40px;
+        left: 131px;
+        top: 51px;
       }
       &:nth-child(2) {
-        left: 68px;
-        top: 77px;
+        left: 38px;
+        top: 41px;
       }
       &:nth-child(3) {
         left: 52px;
-        top: 144px;
+        top: 118px;
       }
       &:nth-child(4) {
-        left: 210px;
+        left: 175px;
         top: 17px;
       }
       &:nth-child(5) {
-        left: 240px;
-        top: 120px;
+        left: 183px;
+        top: 100px;
       }
     }
     &.mozzarella {
       background-image: url("/assets/images/mozzarella.svg");
-      width: 46px;
-      height: 32px;
+      width: 41px;
+      height: 29px;
 
       &:nth-child(1) {
-        left: 6px;
+        left: 33px;
         top: 106px;
       }
       &:nth-child(2) {
         left: 186px;
-        top: 114px;
+        top: 102px;
       }
       &:nth-child(3) {
-        left: 162px;
-        top: 8px;
+        left: 144px;
+        top: 15px;
       }
       &:nth-child(4), &:nth-child(5) {
         display: none;
@@ -184,8 +184,8 @@
     }
     &.mushroom {
       background-image: url("/assets/images/mushroom.svg");
-      width: 45px;
-      height: 26px;
+      width: 41px;
+      height: 23px;
 
       &:nth-child(1) {
         left: 120px;
@@ -200,12 +200,12 @@
         top: 120px;
       }
       &:nth-child(4) {
-        left: 240px;
-        top: 30px;
+        left: 218px;
+        top: 41px;
       }
       &:nth-child(5) {
-        left: 220px;
-        top: 129px;
+        left: 200px;
+        top: 102px;
       }
     }
     &.olive {
@@ -226,8 +226,8 @@
         top: 110px;
       }
       &:nth-child(4) {
-        left: 279px;
-        top: 47px;
+        left: 126px;
+        top: 19px;
       }
       &:nth-child(5) {
         display: none;
@@ -235,8 +235,8 @@
     }
     &.onion {
       background-image: url("/assets/images/onion.svg");
-      width: 57px;
-      height: 36px;
+      width: 52px;
+      height: 33px;
 
       &:nth-child(1) {
         left: 101px;
@@ -247,12 +247,12 @@
         top: 61px;
       }
       &:nth-child(3) {
-        left: 261px;
+        left: 219px;
         top: 55px;
       }
       &:nth-child(4) {
-        left: 172px;
-        top: 132px;
+        left: 152px;
+        top: 115px;
       }
       &:nth-child(5) {
         display: none;
@@ -260,12 +260,12 @@
     }
     &.pepper {
       background-image: url("/assets/images/pepper.svg");
-      width: 57px;
-      height: 36px;
+      width: 52px;
+      height: 33px;
 
       &:nth-child(1) {
-        left: 122px;
-        top: 30px;
+        left: 91px;
+        top: 23px;
       }
       &:nth-child(2) {
         left: 175px;
@@ -276,21 +276,21 @@
         top: 81px;
       }
       &:nth-child(4) {
-        left: 282px;
-        top: 69px;
+        left: 212px;
+        top: 39px;
       }
       &:nth-child(5) {
-        left: 105px;
-        top: 147px;
+        left: 103px;
+        top: 119px;
       }
     }
     &.pepperoni {
       background-image: url("/assets/images/pepperoni.svg");
-      width: 57px;
-      height: 36px;
+      width: 52px;
+      height: 33px;
 
       &:nth-child(1) {
-        left: 222px;
+        left: 191px;
         top: 35px;
       }
       &:nth-child(2) {
@@ -306,8 +306,8 @@
         top: 80px;
       }
       &:nth-child(5) {
-        left: 75px;
-        top: 137px;
+        left: 44px;
+        top: 91px;
       }
     }
     &.sweetcorn {
@@ -324,8 +324,8 @@
         top: 41px;
       }
       &:nth-child(3) {
-        left: 212px;
-        top: 146px;
+        left: 148px;
+        top: 110px;
       }
       &:nth-child(4), &:nth-child(5) {
         display: none;
@@ -333,12 +333,12 @@
     }
     &.tomato {
       background-image: url("/assets/images/tomato.svg");
-      width: 57px;
-      height: 36px;
+      width: 52px;
+      height: 33px;
 
       &:nth-child(1) {
         left: 175px;
-        top: 147px;
+        top: 101px;
       }
       &:nth-child(2) {
         left: 41px;
@@ -349,11 +349,269 @@
         top: 100px;
       }
       &:nth-child(4) {
-        left: 280px;
-        top: 99px;
+        left: 221px;
+        top: 55px;
       }
       &:nth-child(5) {
         display: none;
+      }
+    }
+  }
+}
+
+@screen md {
+  .pizza {
+    height: 342px;
+
+    &.active {
+      transform: translateX(50%) translateX(-250px) translateY(25%);
+    }
+
+    .board {
+      width: 500px;
+      height: 342px;
+    }
+
+    .base{
+      width: 390px;
+      height: 322px;
+      left: 90px;
+      top: 30px;
+    }
+
+    .toppings{
+      width: 352px;
+      height: 190px;
+      left: 112px;
+      top: 46px;
+    }
+
+    .topping {
+      &.anchovy {
+        width: 51px;
+        height: 37px;
+
+        &:nth-child(3) {
+          left: 263px;
+          top: 95px;
+        }
+      }
+
+      &.bacon {
+        width: 56px;
+        height: 31px;
+
+        &:nth-child(1) {
+          left: 124px;
+          top: 50px;
+        }
+
+        &:nth-child(3) {
+          left: 132px;
+          top: 86px;
+        }
+
+        &:nth-child(5) {
+          left: 140px;
+          top: 154px;
+        }
+      }
+
+      &.basil {
+        width: 38px;
+        height: 26px;
+
+        &:nth-child(1) {
+          left: 136px;
+          top: 63px;
+        }
+        &:nth-child(2) {
+          left: 126px;
+          top: 127px;
+        }
+        &:nth-child(3) {
+          left: 222px;
+          top: 98px;
+        }
+      }
+
+      &.chili {
+        width: 63px;
+        height: 35px;
+
+        &:nth-child(1) {
+          left: 150px;
+          top: 40px;
+        }
+        &:nth-child(2) {
+          left: 68px;
+          top: 77px;
+        }
+        &:nth-child(3) {
+          left: 52px;
+          top: 144px;
+        }
+        &:nth-child(4) {
+          left: 210px;
+          top: 17px;
+        }
+        &:nth-child(5) {
+          left: 240px;
+          top: 120px;
+        }
+      }
+
+      &.mozzarella {
+        width: 46px;
+        height: 32px;
+
+        &:nth-child(1) {
+          left: 6px;
+          top: 106px;
+        }
+        &:nth-child(2) {
+          left: 186px;
+          top: 114px;
+        }
+        &:nth-child(3) {
+          left: 162px;
+          top: 8px;
+        }
+      }
+      &.mushroom {
+        width: 45px;
+        height: 26px;
+
+        &:nth-child(1) {
+          left: 120px;
+          top: 20px;
+        }
+        &:nth-child(2) {
+          left: 40px;
+          top: 60px;
+        }
+        &:nth-child(3) {
+          left: 90px;
+          top: 120px;
+        }
+        &:nth-child(4) {
+          left: 240px;
+          top: 30px;
+        }
+        &:nth-child(5) {
+          left: 220px;
+          top: 129px;
+        }
+      }
+      &.olive {
+        &:nth-child(4) {
+          left: 279px;
+          top: 47px;
+        }
+      }
+      &.onion {
+        width: 57px;
+        height: 36px;
+
+        &:nth-child(1) {
+          left: 101px;
+          top: 55px;
+        }
+        &:nth-child(2) {
+          left: 10px;
+          top: 61px;
+        }
+        &:nth-child(3) {
+          left: 261px;
+          top: 55px;
+        }
+        &:nth-child(4) {
+          left: 172px;
+          top: 132px;
+        }
+        &:nth-child(5) {
+          display: none;
+        }
+      }
+      &.pepper {
+        width: 57px;
+        height: 36px;
+
+        &:nth-child(1) {
+          left: 122px;
+          top: 30px;
+        }
+        &:nth-child(2) {
+          left: 175px;
+          top: 87px;
+        }
+        &:nth-child(3) {
+          left: 30px;
+          top: 81px;
+        }
+        &:nth-child(4) {
+          left: 282px;
+          top: 69px;
+        }
+        &:nth-child(5) {
+          left: 105px;
+          top: 147px;
+        }
+      }
+      &.pepperoni {
+        width: 57px;
+        height: 36px;
+
+        &:nth-child(1) {
+          left: 222px;
+          top: 35px;
+        }
+        &:nth-child(2) {
+          left: 145px;
+          top: 107px;
+        }
+        &:nth-child(3) {
+          left: 81px;
+          top: 21px;
+        }
+        &:nth-child(4) {
+          left: 221px;
+          top: 80px;
+        }
+        &:nth-child(5) {
+          left: 75px;
+          top: 137px;
+        }
+      }
+      &.sweetcorn {
+        &:nth-child(3) {
+          left: 212px;
+          top: 146px;
+        }
+      }
+      &.tomato {
+        width: 57px;
+        height: 36px;
+
+        &:nth-child(1) {
+          left: 175px;
+          top: 147px;
+        }
+        &:nth-child(2) {
+          left: 41px;
+          top: 41px;
+        }
+        &:nth-child(3) {
+          left: 85px;
+          top: 100px;
+        }
+        &:nth-child(4) {
+          left: 280px;
+          top: 99px;
+        }
+        &:nth-child(5) {
+          display: none;
+        }
       }
     }
   }

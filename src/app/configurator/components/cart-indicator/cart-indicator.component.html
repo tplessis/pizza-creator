@@ -1,9 +1,8 @@
 <a [routerLink]="['/cart']"
-  class="flex group justify-center items-center w-16 h-16 rounded-full bg-green-400 hover:bg-green-500 text-green-50 shadow-lg">
-  <svg width="34"
-    height="34"
-    viewBox="0 0 34 34"
+  class="flex group justify-center items-center md:w-16 md:h-16 w-12 h-12 rounded-full bg-green-400 hover:bg-green-500 text-green-50 shadow-lg">
+  <svg viewBox="0 0 34 34"
     fill="none"
+    class="md:h-8 md:w-8 h-6 w-6"
     xmlns="http://www.w3.org/2000/svg">
     <path
       d="M26.1536 28.7694C26.1536 29.4917 26.4098 30.1079 26.9202 30.6183C27.4306 31.1292 28.0473 31.3848 28.7698 31.3848C29.4913 31.3848 30.1079 31.1292 30.6184 30.6183C31.1293 30.1079 31.3849 29.4917 31.3849 28.7694C31.3849 28.0472 31.1296 27.431 30.6184 26.9201C30.1079 26.4097 29.4913 26.1541 28.7698 26.1541C28.0473 26.1541 27.4306 26.4097 26.9202 26.9201C26.4098 27.431 26.1536 28.0472 26.1536 28.7694Z"
@@ -16,7 +15,7 @@
       fill="white" />
   </svg>
   <span
-    class="absolute -right-1 -top-1 flex items-center justify-center rounded-full group-hover:bg-green-600 bg-green-500 text-green-50 font-semibold text-sm w-6 h-6">
+    class="absolute md:-right-1 md:-top-1 -right-2 -top-2 flex items-center justify-center rounded-full group-hover:bg-green-600 bg-green-500 text-green-50 font-semibold text-sm w-6 h-6">
     {{ pizzas.length }}
   </span>
 </a>

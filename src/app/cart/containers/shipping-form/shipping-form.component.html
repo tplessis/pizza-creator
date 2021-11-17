@@ -6,8 +6,8 @@
     <h2 class="text-gray-800 font-thin text-2xl mt-6">Shipping informations</h2>
     <span class="text-gray-400 font-normal">Validate your shipping address.</span>
 
-    <div class="flex border border-gray-300 rounded-lg h-64 mt-4">
-      <div class="w-1/2 flex flex-col justify-center text-gray-500 space-y-2 p-4">
+    <div class="flex md:flex-row flex-col border border-gray-300 rounded-lg 2xl:h-64 md:h-48 mt-4">
+      <div class="md:w-1/2 w-full flex flex-col justify-center text-gray-500 space-y-2 p-4">
         <span>{{ user?.firstname }} {{ user?.lastname }}</span>
         <span>{{ user?.address }}</span>
         <span>{{ user?.zipcode }} {{ user?.city }}</span>
@@ -18,7 +18,8 @@
           </a>
         </div>
       </div>
-      <div class="w-1/2 border-l border-gray-300 overflow-hidden rounded-r-lg">
+      <div
+        class="md:w-1/2 w-full md:border-l md:border-t-0 border-t md:h-auto h-40 border-gray-300 overflow-hidden md:rounded-r-lg rounded-b-lg md:rounded-bl-none">
         <mgl-map [style]="'mapbox://styles/mapbox/light-v10'"
           [zoom]="[14]"
           [center]="center">
@@ -51,7 +52,7 @@
 
   </div>
 
-  <div class="flex justify-between">
+  <div class="flex md:flex-row flex-col justify-between">
     <pizza-back-button></pizza-back-button>
     <div class="flex xl:space-x-6 md:space-x-4 space-x-2">
       <a [routerLink]="['/cart/customer-infos']"
@@ -59,7 +60,7 @@
         Previous
       </a>
       <button type="submit"
-        class="rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
+        class="flex-1 md:flex-none rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 px-4">
         Continue to payment
       </button>
     </div>

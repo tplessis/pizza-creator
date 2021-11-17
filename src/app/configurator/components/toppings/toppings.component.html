@@ -6,12 +6,12 @@
     At least 3 toppings are required.
   </span>
 </div>
-<div class="flex flex-wrap justify-between">
+<div class="grid md:grid-cols-3 grid-cols-2 gap-2 md:gap-4 2xl:gap-6">
   <div *ngFor="let topping of toppings"
-    class="group flex xl:w-1/4 md:w-1/3 w-1/2">
+    class="group flex">
     <label
-      class="flex items-center border-2 cursor-pointer rounded overflow-hidden bg-gray-50 text-gray-800 text-sm w-full mx-2 mb-4"
-      [ngClass]="value.includes(topping) ? 'border-green-500': 'border-white'">
+      class="flex items-center border-2 cursor-pointer rounded overflow-hidden bg-gray-50 text-gray-800 text-sm w-full mb-4"
+      [ngClass]="value.includes(topping) ? 'border-green-500': 'border-gray-200'">
       <input type="checkbox"
         [attr.name]="topping"
         [attr.value]="topping"
@@ -25,7 +25,7 @@
           class="w-6"
           alt="" />
       </span>
-      <span class="p-2"
+      <span class="px-2 py-3 2xl:text-base"
         [ngClass]="{'text-green-500 font-semibold': value.includes(topping)}">
         {{ topping.label | titlecase }}
       </span>
