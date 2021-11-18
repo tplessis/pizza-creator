@@ -50,7 +50,7 @@ export class ConfiguratorComponent implements OnInit {
     this.pizzas = this.cartService.pizzas;
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit() {
     this.form.markAllAsTouched();
 
     if (this.form.valid) {

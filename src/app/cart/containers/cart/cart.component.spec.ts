@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { CartComponent } from './cart.component';
+import { ItemsComponent } from '../../components/items/items.component';
+import { TotalPriceComponent } from '../../components/total-price/total-price.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -8,7 +11,9 @@ describe('CartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CartComponent]
+      imports: [RouterTestingModule],
+      declarations: [CartComponent, ItemsComponent, TotalPriceComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -18,7 +23,7 @@ describe('CartComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create cart component', () => {
     expect(component).toBeTruthy();
   });
 });

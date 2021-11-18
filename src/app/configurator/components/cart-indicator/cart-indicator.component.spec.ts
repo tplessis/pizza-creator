@@ -1,5 +1,5 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartIndicatorComponent } from './cart-indicator.component';
 
 describe('CartIndicatorComponent', () => {
@@ -8,7 +8,8 @@ describe('CartIndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CartIndicatorComponent]
+      declarations: [CartIndicatorComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -18,7 +19,7 @@ describe('CartIndicatorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create cart indicator component', () => {
     expect(component).toBeTruthy();
   });
 });

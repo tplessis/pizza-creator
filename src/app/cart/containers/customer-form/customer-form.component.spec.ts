@@ -1,5 +1,7 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CustomerFormComponent } from './customer-form.component';
 
 describe('CustomerFormComponent', () => {
@@ -8,7 +10,9 @@ describe('CustomerFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomerFormComponent]
+      imports: [ReactiveFormsModule, RouterTestingModule],
+      declarations: [CustomerFormComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -18,7 +22,7 @@ describe('CustomerFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a customer form component', () => {
     expect(component).toBeTruthy();
   });
 });

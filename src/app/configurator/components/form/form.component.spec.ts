@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { FormComponent } from './form.component';
+import { SizeComponent } from '../size/size.component';
+import { ToppingsComponent } from '../toppings/toppings.component';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -8,17 +11,25 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormComponent]
+      imports: [ReactiveFormsModule],
+      declarations: [FormComponent, SizeComponent, ToppingsComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(inject([FormBuilder], (fb: FormBuilder) => {
     fixture = TestBed.createComponent(FormComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
+    component.parent = fb.group({
+      size: [null, Validators.required],
+      toppings: [[], [Validators.required, Validators.minLength(3)]]
+    });
+
+    fixture.detectChanges();
+  }));
+
+  it('should create form component', () => {
     expect(component).toBeTruthy();
   });
 });

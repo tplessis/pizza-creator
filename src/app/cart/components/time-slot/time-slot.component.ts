@@ -10,7 +10,6 @@ export const PIZZA_TIME_SLOT_ACCESSOR = {
 
 @Component({
   selector: 'pizza-time-slot',
-
   providers: [PIZZA_TIME_SLOT_ACCESSOR],
   templateUrl: './time-slot.component.html'
 })

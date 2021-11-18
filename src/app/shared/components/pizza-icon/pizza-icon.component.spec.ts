@@ -18,7 +18,7 @@ describe('PizzaIconComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create pizza icon component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { ShippingFormComponent } from './shipping-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TimeSlotComponent } from '../../components/time-slot/time-slot.component';
 
 describe('ShippingFormComponent', () => {
   let component: ShippingFormComponent;
@@ -8,7 +11,9 @@ describe('ShippingFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShippingFormComponent]
+      imports: [ReactiveFormsModule, HttpClientModule],
+      declarations: [ShippingFormComponent, TimeSlotComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -18,7 +23,7 @@ describe('ShippingFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a shipping form component', () => {
     expect(component).toBeTruthy();
   });
 });
