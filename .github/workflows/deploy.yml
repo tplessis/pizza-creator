@@ -38,6 +38,10 @@ jobs:
           run: npm run test-ci
         - name: Build
           run: npm run build
+    deploy:
+      name: deploy
+      runs-on: ubuntu-latest
+      steps:
         - name: deploy site to vercel
           uses: amondnet/vercel-action@v20
           with:
