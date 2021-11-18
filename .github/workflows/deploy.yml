@@ -7,10 +7,9 @@ on:
 jobs:
     build:
       name: install, test and build
-      runs-on: ${{ matrix.os }}
+      runs-on: ubuntu-latest
       strategy:
         matrix:
-          os: [ubuntu-latest]
           node: [14, 15, 16]
       steps:
         - uses: actions/checkout@v2
@@ -26,15 +25,14 @@ jobs:
           env:
             cache-name: cache-node-modules
           with:
-            path: |
-              ~/.npm
-              node_modules
+            path: node_modules
             key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
             restore-keys: |
               ${{ runner.os }}-build-${{ env.cache-name }}-
               ${{ runner.os }}-build-
               ${{ runner.os }}-
         - name: Install environment
+          if: steps.cache-nodemodules.outputs.cache-hit != 'true'
           run: npm ci
         - name: Tests coverage
           run: npm run test-ci
