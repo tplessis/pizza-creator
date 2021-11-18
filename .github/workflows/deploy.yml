@@ -1,8 +1,8 @@
-name: mainworkflow
+name: deploy-workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
     build:
