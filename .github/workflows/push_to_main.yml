@@ -1,0 +1,49 @@
+name: mainworkflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+    build:
+      name: install, test and build
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          os: [ubuntu-latest]
+          node: [14, 15, 16]
+      steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js ${{ matrix.node }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
+        - name: Get origin main
+          run: |
+            git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+        - name: Cache node modules
+          uses: actions/cache@v1
+          env:
+            cache-name: cache-node-modules
+          with:
+            path: |
+              ~/.npm
+              node_modules
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-build-${{ env.cache-name }}-
+              ${{ runner.os }}-build-
+              ${{ runner.os }}-
+        - name: Install environment
+          run: npm ci
+        - name: Tests coverage
+          run: npm run test
+        - name: Build
+          run: npm run build
+        - name: deploy site to vercel
+          uses: amondnet/vercel-action@v20
+          with:
+            vercel-token: ${{ secrets.VERCEL_TOKEN }}
+            vercel-args: '--prod'
+            vercel-org-id: ${{ secrets.ORG_ID}}
+            vercel-project-id: ${{ secrets.PROJECT_ID}}
