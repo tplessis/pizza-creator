@@ -10,6 +10,7 @@
     "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test-ci": "ng test -- --watch=false --browsers=ChromeHeadless",
     "server": "./node_modules/json-server/lib/cli/bin.js --watch db.json"
   },
   "private": true,

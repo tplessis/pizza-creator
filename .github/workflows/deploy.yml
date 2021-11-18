@@ -37,7 +37,7 @@ jobs:
         - name: Install environment
           run: npm ci
         - name: Tests coverage
-          run: npm run test
+          run: npm run test-ci
         - name: Build
           run: npm run build
         - name: deploy site to vercel
