@@ -12,6 +12,7 @@ import { TotalPriceComponent } from './components/total-price/total-price.compon
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from '@env/environment';
 import { SharedModule } from '@shared/shared.module';
+import { PaymentFormComponent } from './containers/payment-form/payment-form.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
         redirectTo: 'customer-infos'
       },
       { path: 'customer-infos', component: CustomerFormComponent },
-      { path: 'shipping-infos', component: ShippingFormComponent }
+      { path: 'shipping-infos', component: ShippingFormComponent },
+      { path: 'payment-selection', component: PaymentFormComponent }
     ]
   }
 ];
@@ -37,7 +39,8 @@ const routes: Routes = [
     ShippingFormComponent,
     BackButtonComponent,
     TimeSlotComponent,
-    TotalPriceComponent
+    TotalPriceComponent,
+    PaymentFormComponent
   ],
   imports: [
     CommonModule,

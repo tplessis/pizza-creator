@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from '@shared/services/cart.service';
 
@@ -51,9 +44,8 @@ export class CustomerFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(form: FormGroup) {
+  onSubmit() {
     this.form.markAllAsTouched();
-    console.log(this.form);
 
     if (this.form.valid) {
       this.cartService.setUser(this.form.value);

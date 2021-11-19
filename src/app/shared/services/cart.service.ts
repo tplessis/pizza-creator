@@ -42,9 +42,15 @@ export class CartService {
   constructor() {
     const sessionUser = sessionStorage.getItem(sessionKeys.user);
     const sessionCart = sessionStorage.getItem(sessionKeys.cart);
+    const sessionDeliveryTime = sessionStorage.getItem(
+      sessionKeys.deliveryTime
+    );
 
     this._user = sessionUser ? JSON.parse(sessionUser) : undefined;
     this._items = sessionCart ? JSON.parse(sessionCart) : [];
+    this._deliveryTime = sessionDeliveryTime
+      ? JSON.parse(sessionDeliveryTime)
+      : undefined;
   }
 
   addPizza(pizza: IPizza) {
@@ -63,6 +69,7 @@ export class CartService {
   }
 
   setDeliveryTime(date: Date) {
+    console.log(date);
     this._deliveryTime = date;
     this.addObjectToSession(sessionKeys.deliveryTime, date);
   }

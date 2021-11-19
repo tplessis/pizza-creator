@@ -56,4 +56,8 @@ export class TimeSlotComponent implements OnInit {
   isAvailable(date: Date): boolean {
     return dayjs(date).isAfter(dayjs());
   }
+
+  isEqual(date1: Date, date2: Date): boolean {
+    return dayjs(date1).isSame(date2, 'hour');
+  }
 }

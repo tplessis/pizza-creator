@@ -11,6 +11,7 @@ import { GeocodingService } from '@shared/services/geocoding.service';
 import { LngLatLike } from 'mapbox-gl';
 import { take } from 'rxjs/operators';
 import * as dayjs from 'dayjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pizza-shipping-form',
@@ -45,7 +46,8 @@ export class ShippingFormComponent implements OnInit {
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef,
     private cartService: CartService,
-    private geocodingService: GeocodingService
+    private geocodingService: GeocodingService,
+    private router: Router
   ) {
     this.user = this.cartService.user;
 
@@ -64,7 +66,12 @@ export class ShippingFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(form: FormGroup) {
-    console.log(this.form.value);
+  onSubmit() {
+    this.form.markAllAsTouched();
+
+    if (this.form.valid) {
+      this.cartService.setDeliveryTime(this.form.value.deliveryTime);
+      this.router.navigate(['cart/payment-selection']);
+    }
   }
 }
