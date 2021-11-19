@@ -6,7 +6,7 @@ on:
 
 jobs:
     setup:
-      name: setup project
+      name: Setup project
       runs-on: ubuntu-latest
       strategy:
         matrix:
