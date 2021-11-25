@@ -47,6 +47,7 @@ export class PaymentFormComponent implements OnInit {
 
   private fireworks(): void {
     const confettiCanvas = document.createElement('canvas');
+    confettiCanvas.id = 'confettiCanvas';
     confettiCanvas.width = window.screen.width;
     confettiCanvas.height = window.screen.height;
     confettiCanvas.style.position = 'fixed';
@@ -93,8 +94,12 @@ export class PaymentFormComponent implements OnInit {
       startVelocity: 55,
     });
 
-    setInterval(() => {
-      document.body.removeChild(confettiCanvas);
+    const canvasRemoveInterval = setInterval(() => {
+      const canvas = document.getElementById('confettiCanvas');
+      if(canvas) {
+        document.body.removeChild(canvas);
+      }
+      clearInterval(canvasRemoveInterval);
     }, 3000);
   }
 }
