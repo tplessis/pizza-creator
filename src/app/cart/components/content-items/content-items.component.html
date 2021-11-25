@@ -1,4 +1,5 @@
-<div [ngClass]="{'space-y-6': pizzas && pizzas.length > 0}">
+<div class="mt-4"
+  [ngClass]="{'space-y-6': pizzas && pizzas.length > 0}">
   <ng-container *ngIf="pizzas && pizzas.length > 0; else emptyState">
     <div *ngFor="let pizza of pizzas; let i = index;"
       class="flex items-center text-gray-50">

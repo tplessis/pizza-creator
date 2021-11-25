@@ -1,0 +1,82 @@
+<form (ngSubmit)="onSubmit()"
+  [formGroup]="form"
+  class="flex flex-col h-full">
+
+  <div class="flex-1 flex flex-col justify-start">
+    <h2 class="text-gray-800 font-thin text-2xl mt-6">
+      <span>Payment selection</span>
+      <span class="text-red-500 pl-1 pt-1">*</span>
+      <span *ngIf="form.get('method')?.hasError('required') && form.get('method')?.touched"
+        class="text-red-500 text-xs font-normal pt-1 pl-2">
+        Field is required
+      </span>
+    </h2>
+
+    <div class="flex flex-col space-y-6 2xl:space-y-10">
+      <div class="relative border  rounded-lg p-4 w-full mt-4"
+        [ngClass]="form.get('method')?.value === 'card' ? 'border-green-500' : 'border-gray-300'">
+        <div class="absolute top-3 2xl:top-4 right-4 flex space-x-4">
+          <img src="/assets/images/visa.png"
+            alt="Visa"
+            class="w-6" />
+          <img src="/assets/images/hsbc.png"
+            alt="HSBC"
+            class="w-6" />
+          <img src="/assets/images/american-express.png"
+            alt="american Express"
+            class="w-6" />
+        </div>
+        <div class="flex items-start space-x-4">
+          <input type="radio"
+            class="mt-1 text-green-500 outline-none focus:ring-green-500"
+            formControlName="method"
+            id="method_card"
+            value="card" />
+          <label class="flex flex-col cursor-pointer"
+            for="method_card">
+            <span class="font-bold text-gray-800">Credit Card</span>
+            <span class="text-gray-500 font-base">Safe money transfer using your bank account. Visa, Maestro, Discover,
+              american Express.</span>
+          </label>
+        </div>
+        <pizza-credit-card-form [parent]="form">
+        </pizza-credit-card-form>
+      </div>
+      <div class="relative border  rounded-lg p-4 w-full mt-4"
+        [ngClass]="form.get('method')?.value === 'paypal' ? 'border-green-500' : 'border-gray-300'">
+        <div class="absolute top-1 2xl:top-2 right-4 flex space-x-4">
+          <img src="/assets/images/paypal.png"
+            alt="PayPal"
+            class="w-24" />
+        </div>
+        <div class="flex items-start space-x-4">
+          <input type="radio"
+            class="mt-1 text-green-500 outline-none focus:ring-green-500"
+            formControlName="method"
+            id="method_paypal"
+            value="paypal" />
+          <label class="flex flex-col cursor-pointer"
+            for="method_paypal">
+            <span class="font-bold text-gray-800">PayPal</span>
+            <span class="text-gray-500 font-base">You will be redirected to Paypal website to complete your
+              <br />purchase securely.</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex md:flex-row flex-col justify-between">
+    <pizza-back-button></pizza-back-button>
+    <div class="flex xl:space-x-6 md:space-x-4 space-x-2">
+      <a [routerLink]="['/cart/shipping-infos']"
+        class="rounded border border-gray-400 text-gray-500 font-semibold text-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 py-2 2xl:py-3 px-4 2xl:px-6">
+        Previous
+      </a>
+      <button type="submit"
+        class="flex-1 md:flex-none rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 2xl:py-3 px-4 2xl:px-6">
+        Complete order
+      </button>
+    </div>
+  </div>
+</form>

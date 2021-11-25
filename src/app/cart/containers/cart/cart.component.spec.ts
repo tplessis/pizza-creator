@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CartComponent } from './cart.component';
-import { ItemsComponent } from '../../components/items/items.component';
-import { TotalPriceComponent } from '../../components/total-price/total-price.component';
+import { ContentItemsComponent } from '../../components/content-items/content-items.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CartComponent', () => {
@@ -12,7 +11,7 @@ describe('CartComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [CartComponent, ItemsComponent, TotalPriceComponent],
+      declarations: [CartComponent, ContentItemsComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });

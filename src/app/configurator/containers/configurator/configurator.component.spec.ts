@@ -74,7 +74,6 @@ describe('ConfiguratorComponent', () => {
 
   it('should submits the form successfully', async () => {
     fillForm(component);
-    console.log(component.form);
     expect(component.form.valid).toBeTruthy();
   });
 

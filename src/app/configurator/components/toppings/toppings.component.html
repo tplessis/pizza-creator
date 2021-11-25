@@ -20,9 +20,9 @@
         (focus)="onFocus(topping)"
         [attr.checked]="value.includes(topping)"
         class="hidden w-0 h-0">
-      <span class="flex justify-center bg-gray-200 bg-cover h-full w-9 {{ topping.label }}">
+      <span class="flex justify-center bg-gray-200 bg-cover h-full w-9 2xl:w-14 {{ topping.label }}">
         <img [attr.src]="'assets/images/'+ topping.label +'.svg'"
-          class="w-6"
+          class="w-6 2xl:w-9"
           alt="" />
       </span>
       <span class="px-2 py-3 2xl:text-base"
