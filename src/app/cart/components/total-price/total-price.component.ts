@@ -12,6 +12,9 @@ export class TotalPriceComponent implements OnInit {
   @Input()
   totalPrice: number;
 
+  @Input()
+  cartOpen: boolean;
+
   constructor() {}
 
   ngOnInit(): void {}

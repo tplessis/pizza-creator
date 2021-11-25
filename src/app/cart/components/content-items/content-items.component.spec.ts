@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItemsComponent } from './items.component';
+import { ItemsComponent } from './content-items.component';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;

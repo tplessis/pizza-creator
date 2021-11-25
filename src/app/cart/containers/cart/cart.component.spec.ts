@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CartComponent } from './cart.component';
-import { ItemsComponent } from '../../components/items/items.component';
+import { ItemsComponent } from '../../components/content-items/content-items.component';
 import { TotalPriceComponent } from '../../components/total-price/total-price.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
