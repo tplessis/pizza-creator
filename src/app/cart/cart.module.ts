@@ -13,6 +13,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from '@env/environment';
 import { SharedModule } from '@shared/shared.module';
 import { PaymentFormComponent } from './containers/payment-form/payment-form.component';
+import { CreditCardFormComponent } from './components/credit-card-form/credit-card-form.component';
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     BackButtonComponent,
     TimeSlotComponent,
     TotalPriceComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    CreditCardFormComponent
   ],
   imports: [
     CommonModule,

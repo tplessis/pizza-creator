@@ -2,18 +2,18 @@
   <div class="flex flex-col w-full md:w-2/3 md:h-full pt-6 md:pr-8">
     <ul class="flex justify-between items-center font-semibold text-sm text-gray-300">
       <li
-        [ngClass]="{'text-green-500 border-green-500': isActive('/cart/customer-infos'), 'border-gray-300': !isActive('/cart/customer-infos')}"
-        class="flex-1 text-center pb-5 pt-2 px-4 border-b uppercase">
+        [ngClass]="{'text-green-500 border-b-2 border-green-500': isActive('/cart/customer-infos'), 'border-b border-gray-300': !isActive('/cart/customer-infos')}"
+        class="flex-1 text-center pb-5 pt-2 px-4 uppercase">
         01 - Customer infos
       </li>
       <li
-        [ngClass]="{'text-green-500 border-green-500': isActive('/cart/shipping-infos'), 'border-gray-300': !isActive('/cart/shipping-infos')}"
-        class="flex-1 text-center pb-5 pt-2 px-4 border-b uppercase">
+        [ngClass]="{'text-green-500 border-b-2 border-green-500': isActive('/cart/shipping-infos'), 'border-b border-gray-300': !isActive('/cart/shipping-infos')}"
+        class="flex-1 text-center pb-5 pt-2 px-4 uppercase">
         02 - Shipping infos
       </li>
       <li
-        [ngClass]="{'text-green-500 border-green-500': isActive('/cart/payment-selection'), 'border-gray-300': !isActive('/cart/payment-selection')}"
-        class="flex-1 text-center pb-5 pt-2 px-4 border-b uppercase">
+        [ngClass]="{'text-green-500 border-b-2 border-green-500': isActive('/cart/payment-selection'), 'border-b border-gray-300': !isActive('/cart/payment-selection')}"
+        class="flex-1 text-center pb-5 pt-2 px-4 uppercase">
         03 - Payment selection
       </li>
     </ul>
