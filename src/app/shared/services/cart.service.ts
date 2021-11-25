@@ -53,28 +53,27 @@ export class CartService {
       : undefined;
   }
 
-  addPizza(pizza: IPizza) {
+  addPizza(pizza: IPizza): void {
     this._items.push(pizza);
     this.addObjectToSession(sessionKeys.cart, this._items);
   }
 
-  removePizza(pizza: IPizza) {
+  removePizza(pizza: IPizza): void {
     this._items = this._items.filter((p: IPizza) => pizza !== p);
     this.addObjectToSession(sessionKeys.cart, this._items);
   }
 
-  setUser(user: IUser) {
+  setUser(user: IUser): void {
     this._user = user;
     this.addObjectToSession(sessionKeys.user, user);
   }
 
-  setDeliveryTime(date: Date) {
-    console.log(date);
+  setDeliveryTime(date: Date): void {
     this._deliveryTime = date;
     this.addObjectToSession(sessionKeys.deliveryTime, date);
   }
 
-  clearCart() {
+  clearCart(): IPizza[] {
     this._items = [];
     this.addObjectToSession(sessionKeys.cart, []);
     return this._items;
@@ -94,7 +93,7 @@ export class CartService {
     }, pizza?.size?.price || 0);
   }
 
-  private addObjectToSession(key: sessionKeys, value: any) {
+  private addObjectToSession(key: sessionKeys, value: any): void {
     sessionStorage.setItem(key, JSON.stringify(value));
   }
 }

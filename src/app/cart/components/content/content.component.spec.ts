@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContentComponent } from './content.component';
+import { ContentItemsComponent } from '../content-items/content-items.component';
 
 describe('ContentComponent', () => {
   let component: ContentComponent;
@@ -8,7 +8,7 @@ describe('ContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContentComponent ]
+      declarations: [ ContentComponent, ContentItemsComponent ]
     })
     .compileComponents();
   });

@@ -42,14 +42,14 @@ export class CreditCardFormComponent
   private _cleaveCvvCodeInstance: Cleave;
 
   get isCardMethod():boolean {
-    return this.parent.get('method')?.value === 'card';
+    return this.parent?.get('method')?.value === 'card';
   }
 
   constructor() {}
 
   ngOnInit(): void {
     this.parent
-      .get('method')
+      ?.get('method')
       ?.valueChanges.pipe(
         tap((method: string) => {
           if (method === 'card') {
@@ -90,15 +90,15 @@ export class CreditCardFormComponent
 
   private addValidators(formControls: string[], validators: ValidatorFn[] | ValidatorFn): void {
     formControls.map((control: string) => {
-      this.parent.get(control)?.addValidators(validators);
-      this.parent.get(control)?.updateValueAndValidity();
+      this.parent?.get(control)?.addValidators(validators);
+      this.parent?.get(control)?.updateValueAndValidity();
     });
   }
 
   private removeValidators(formControls: string[], validators: ValidatorFn[] | ValidatorFn): void {
     formControls.map((control: string) => {
-      this.parent.get(control)?.removeValidators(validators);
-      this.parent.get(control)?.updateValueAndValidity();
+      this.parent?.get(control)?.removeValidators(validators);
+      this.parent?.get(control)?.updateValueAndValidity();
     });
   }
 }

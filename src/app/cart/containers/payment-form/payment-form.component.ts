@@ -4,7 +4,6 @@ import * as confetti from 'canvas-confetti';
 
 export const conditionalValidator = (predicate, validator) => {
   return (formControl) => {
-    console.log(formControl);
     if (!formControl.parent) {
       return null;
     }

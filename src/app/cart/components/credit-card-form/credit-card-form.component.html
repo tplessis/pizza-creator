@@ -8,11 +8,11 @@
         <span>Card number <span class="text-red-500"
             *ngIf="isCardMethod">*</span>
         </span>
-        <span *ngIf="parent.get('card.number')?.hasError('required') && parent.get('card.number')?.touched"
+        <span *ngIf="parent?.get('card.number')?.hasError('required') && parent?.get('card.number')?.touched"
           class="text-red-500 text-xs  normal-case font-normal">
           Field is required
         </span>
-        <span *ngIf="parent.get('card.number')?.hasError('pattern') && parent.get('card.number')?.touched"
+        <span *ngIf="parent?.get('card.number')?.hasError('pattern') && parent?.get('card.number')?.touched"
           class="text-red-500 text-xs  normal-case font-normal">
           Invalid card number format
         </span>
@@ -32,7 +32,7 @@
           <span>Name on card <span class="text-red-500"
               *ngIf="isCardMethod">*</span>
           </span>
-          <span *ngIf="parent.get('card.name')?.hasError('required') && parent.get('card.name')?.touched"
+          <span *ngIf="parent?.get('card.name')?.hasError('required') && parent?.get('card.name')?.touched"
             class="text-red-500 text-xs  normal-case font-normal">
             Field is required
           </span>
@@ -50,7 +50,7 @@
           <span>Expiry date <span class="text-red-500"
               *ngIf="isCardMethod">*</span>
           </span>
-          <span *ngIf="parent.get('card.expiration')?.hasError('required') && parent.get('card.expiration')?.touched"
+          <span *ngIf="parent?.get('card.expiration')?.hasError('required') && parent?.get('card.expiration')?.touched"
             class="text-red-500 text-xs  normal-case font-normal">
             Field is required
           </span>
@@ -69,7 +69,7 @@
           <span>CVV Code <span class="text-red-500"
               *ngIf="isCardMethod">*</span>
           </span>
-          <span *ngIf="parent.get('card.code')?.hasError('required') && parent.get('card.code')?.touched"
+          <span *ngIf="parent?.get('card.code')?.hasError('required') && parent?.get('card.code')?.touched"
             class="text-red-500 text-xs  normal-case font-normal">
             Field is required
           </span>
