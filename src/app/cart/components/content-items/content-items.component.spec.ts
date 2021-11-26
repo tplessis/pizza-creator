@@ -1,21 +1,21 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItemsComponent } from './items.component';
+import { ContentItemsComponent } from './content-items.component';
 
-describe('ItemsComponent', () => {
-  let component: ItemsComponent;
-  let fixture: ComponentFixture<ItemsComponent>;
+describe('ContentItemsComponent', () => {
+  let component: ContentItemsComponent;
+  let fixture: ComponentFixture<ContentItemsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ItemsComponent],
+      declarations: [ContentItemsComponent],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItemsComponent);
+    fixture = TestBed.createComponent(ContentItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

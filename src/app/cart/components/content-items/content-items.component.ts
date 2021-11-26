@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPizza } from '../../../shared/models/pizza.interface';
 
 @Component({
-  selector: 'pizza-items',
-  templateUrl: './items.component.html'
+  selector: 'pizza-content-items',
+  templateUrl: './content-items.component.html'
 })
-export class ItemsComponent implements OnInit {
+export class ContentItemsComponent implements OnInit {
   @Input()
   pizzas: IPizza[];
 

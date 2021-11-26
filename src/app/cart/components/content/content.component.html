@@ -1,0 +1,48 @@
+<div class="flex flex-col w-full rounded-xl bg-gray-800 h-full py-6 px-8">
+  <div class="flex justify-between items-center border-b border-gray-50 pb-4">
+    <button (click)="onOpenCart()">
+      <h2 class="flex  space-x-4 flex-1 items-center text-gray-50 font-thin text-2xl">
+        <span>Shopping cart</span>
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 cursor-pointer transition-all duration-300 md:hidden"
+          [ngClass]="{'rotate-180': cartOpen}"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7" />
+        </svg>
+      </h2>
+    </button>
+    <span
+      class="flex items-center justify-center rounded-full bg-green-500 text-green-50 font-semibold text-sm w-6 h-6">
+      {{ pizzas?.length }}
+    </span>
+  </div>
+  <div class="flex flex-col flex-auto transition-all duration-700"
+    #contentItems
+    [ngClass]="{'max-h-0 md:max-h-full overflow-hidden': !cartOpen, 'overflow-y-auto max-h-infinite': cartOpen}">
+    <div class="flex-auto flex-col pr-2 overflow-y-auto">
+      <pizza-content-items [pizzas]="pizzas"
+        (removePizza)="onRemovePizza($event)">
+      </pizza-content-items>
+    </div>
+    <div class="flex flex-col border-gray-500 pt-4 pb-4 border-t border-b-2 mt-2">
+      <div class="flex w-full justify-between transition-all duration-300 overflow-hidden">
+        <span class="text-gray-300 font-thin">Subtotal</span>
+        <span class="text-gray-400 font-medium">{{ totalPrice | currency:'EUR':'symbol':'2.2-2' }}</span>
+      </div>
+      <div class="flex w-full justify-between mt-1 transition-all duration-300 overflow-hidden">
+        <span class="text-gray-300 font-thin">Shipping</span>
+        <span class="text-gray-400 font-medium">{{ shippingPrice | currency:'EUR':'symbol':'2.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex w-full justify-between text-xl mt-4">
+    <span class="text-gray-300 font-base">Total</span>
+    <span class="text-gray-50 font-medium">{{ (totalPrice + shippingPrice) | currency:'EUR':'symbol':'2.2-2' }}</span>
+  </div>
+</div>

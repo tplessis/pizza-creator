@@ -1,0 +1,87 @@
+<div [formGroup]="parent"
+  class="flex flex-col mt-4 2xl:mt-6">
+  <ng-container formGroupName="card">
+    <div class="flex-1 flex-col">
+      <label
+        class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
+        for="number">
+        <span>Card number <span class="text-red-500"
+            *ngIf="isCardMethod">*</span>
+        </span>
+        <span *ngIf="parent?.get('card.number')?.hasError('required') && parent?.get('card.number')?.touched"
+          class="text-red-500 text-xs  normal-case font-normal">
+          Field is required
+        </span>
+        <span *ngIf="parent?.get('card.number')?.hasError('pattern') && parent?.get('card.number')?.touched"
+          class="text-red-500 text-xs  normal-case font-normal">
+          Invalid card number format
+        </span>
+      </label>
+      <input type="text"
+        #cardNumber
+        id="number"
+        formControlName="number"
+        placeholder="0000 0000 0000 0000"
+        class="text-gray-700 focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block w-full placeholder-gray-400 rounded sm:text-sm border-gray-300" />
+    </div>
+    <div class="flex flex-wrap md:flex-nowrap md:space-x-4 mt-2 2xl:mt-4 mb-2 2xl:mb-4">
+      <div class="flex flex-col md:w-1/2 w-full">
+        <label
+          class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
+          for="name">
+          <span>Name on card <span class="text-red-500"
+              *ngIf="isCardMethod">*</span>
+          </span>
+          <span *ngIf="parent?.get('card.name')?.hasError('required') && parent?.get('card.name')?.touched"
+            class="text-red-500 text-xs  normal-case font-normal">
+            Field is required
+          </span>
+        </label>
+        <input type="text"
+          id="name"
+          formControlName="name"
+          placeholder="John Doe"
+          class="w-full text-gray-700 focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block placeholder-gray-400 rounded sm:text-sm border-gray-300" />
+      </div>
+      <div class="flex flex-col w-1/2 md:w-1/4 pr-4 md:pr-0 mt-2 md:mt-0">
+        <label
+          class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
+          for="expiration">
+          <span>Expiry date <span class="text-red-500"
+              *ngIf="isCardMethod">*</span>
+          </span>
+          <span *ngIf="parent?.get('card.expiration')?.hasError('required') && parent?.get('card.expiration')?.touched"
+            class="text-red-500 text-xs  normal-case font-normal">
+            Field is required
+          </span>
+        </label>
+        <input type="text"
+          #expiration
+          id="expiration"
+          formControlName="expiration"
+          placeholder="MM / YY"
+          class="w-full text-gray-700 focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block placeholder-gray-400 rounded sm:text-sm border-gray-300" />
+      </div>
+      <div class="flex flex-col w-1/2 md:w-1/4 mt-2 md:mt-0">
+        <label
+          class="flex items-center justify-between text-xs uppercase leading-snug font-semibold text-gray-600 cursor-pointer mb-1"
+          for="code">
+          <span>CVV Code <span class="text-red-500"
+              *ngIf="isCardMethod">*</span>
+          </span>
+          <span *ngIf="parent?.get('card.code')?.hasError('required') && parent?.get('card.code')?.touched"
+            class="text-red-500 text-xs  normal-case font-normal">
+            Field is required
+          </span>
+        </label>
+        <input type="text"
+          #cvvCode
+          id="code"
+          formControlName="code"
+          placeholder="123"
+          maxlength="3"
+          class="w-full text-gray-700 focus-outline-none focus:ring-green-400 focus:border-green-400 flex-1 block placeholder-gray-400 rounded sm:text-sm border-gray-300" />
+      </div>
+    </div>
+  </ng-container>
+</div>

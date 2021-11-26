@@ -16,7 +16,8 @@ module.exports = {
     {name: 'pizza-viewer'},
     {name: 'pizza-form'},
     {name: 'cart'},
-    {name: 'ui'}
+    {name: 'ui'},
+    {name: 'core'}
   ],
 
   // limit subject length

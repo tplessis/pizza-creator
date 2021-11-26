@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from '@shared/services/cart.service';
 
@@ -26,7 +19,7 @@ export class CustomerFormComponent implements OnInit {
       this.cartService.user?.phone,
       [
         Validators.required,
-        Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/gim)
+        Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)
       ]
     ],
     address: [
@@ -51,9 +44,8 @@ export class CustomerFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(form: FormGroup) {
+  onSubmit() {
     this.form.markAllAsTouched();
-    console.log(this.form);
 
     if (this.form.valid) {
       this.cartService.setUser(this.form.value);

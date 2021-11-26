@@ -5,13 +5,13 @@ import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  templateUrl: './cart.component.html'
 })
 export class CartComponent implements OnInit {
   pizzas: IPizza[];
   shippingPrice: number;
   totalPrice: number;
+  cartOpen = false;
 
   constructor(private router: Router, private cartService: CartService) {}
 
@@ -23,7 +23,11 @@ export class CartComponent implements OnInit {
     return this.router.url === routeKey;
   }
 
-  onRemovePizza(pizza: IPizza) {
+  onOpenCart(): void {
+    this.cartOpen = !this.cartOpen;
+  }
+
+  onRemovePizza(pizza: IPizza): void {
     this.cartService.removePizza(pizza);
     this.getCartData();
   }

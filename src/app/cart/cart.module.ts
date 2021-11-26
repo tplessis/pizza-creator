@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './containers/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ItemsComponent } from './components/items/items.component';
+import { ContentItemsComponent } from './components/content-items/content-items.component';
 import { CustomerFormComponent } from './containers/customer-form/customer-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShippingFormComponent } from './containers/shipping-form/shipping-form.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { TimeSlotComponent } from './components/time-slot/time-slot.component';
-import { TotalPriceComponent } from './components/total-price/total-price.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from '@env/environment';
 import { SharedModule } from '@shared/shared.module';
+import { PaymentFormComponent } from './containers/payment-form/payment-form.component';
+import { CreditCardFormComponent } from './components/credit-card-form/credit-card-form.component';
+import { ContentComponent } from './components/content/content.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,8 @@ const routes: Routes = [
         redirectTo: 'customer-infos'
       },
       { path: 'customer-infos', component: CustomerFormComponent },
-      { path: 'shipping-infos', component: ShippingFormComponent }
+      { path: 'shipping-infos', component: ShippingFormComponent },
+      { path: 'payment-selection', component: PaymentFormComponent }
     ]
   }
 ];
@@ -32,12 +35,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CartComponent,
-    ItemsComponent,
+    ContentItemsComponent,
     CustomerFormComponent,
     ShippingFormComponent,
     BackButtonComponent,
     TimeSlotComponent,
-    TotalPriceComponent
+    PaymentFormComponent,
+    CreditCardFormComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,
