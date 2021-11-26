@@ -1,17 +1,21 @@
 <p align="center">
-<img width="800" src="https://pizza-creator-alpha.vercel.app/assets/images/app_preview.gif"/>
+<img width="800" src="https://github.com/tplessis/pizza-creator/blob/master/src/assets/images/app_preview.gif?raw=true"/>
 </p>
 
 ---
 
 # PizzaCreator
 
+**Note:** Assets and original idea of the pizza generator from Todd Motto. [Here](https://github.com/toddmotto/angular-pizza-creator) is the original version.
+
 ## Introduction
 
 [PizzaCreator](https://pizza-creator-alpha.vercel.app/) This codebase was created to demonstrate a fully fledged application built with Angular. This is not supposed to be a template or a boilerplate. It'just an opinionated app that shows how to do some things in a certain way.
 
-**What's concept you'll learn :**
+**Some concepts / tools that has beeen used here :**
 - [x] Tooling (ESLint, Prettier, Commitizen...)
+- [x] Environment variables using a .env (dotenv)
+- [x] Fully typed app using Typescript
 - [x] Routing, Lazy Loading
 - [x] Smart / Dumb components architecture
 - [x] Reactive forms, form validation
@@ -19,8 +23,7 @@
 - [x] Testing using Jasmine and Karma
 - [x] CSS animations
 - [x] Github actions
-- [x] Deployement ot Vercel
-- [ ] Functions (coming soon)
+- [x] Deployement to Vercel
 
 ## Getting started
 
