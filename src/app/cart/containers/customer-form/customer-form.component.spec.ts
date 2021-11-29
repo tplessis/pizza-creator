@@ -7,7 +7,8 @@ import { CartService } from '@shared/services/cart.service';
 import { CustomerFormComponent } from './customer-form.component';
 
 const fillForm = (component) => {
-  const firstnameControl: AbstractControl = component.form.controls['firstname'];
+  const firstnameControl: AbstractControl =
+    component.form.controls['firstname'];
   const lastnameControl: AbstractControl = component.form.controls['lastname'];
   const emailControl: AbstractControl = component.form.controls['email'];
   const phoneControl: AbstractControl = component.form.controls['phone'];
@@ -58,13 +59,27 @@ describe('CustomerFormComponent', () => {
     component.form.markAllAsTouched();
     fixture.detectChanges();
     expect(component.form.valid).toBeFalsy();
-    expect(fixture.nativeElement.querySelector('label[for=firstname] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=lastname] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=email] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=phone] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=address] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=zipcode] span.error')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('label[for=city] span.error')).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=firstname] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=lastname] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=email] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=phone] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=address] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=zipcode] span.error')
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('label[for=city] span.error')
+    ).toBeTruthy();
   });
 
   it('should submits the form successfully', () => {

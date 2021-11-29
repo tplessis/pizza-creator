@@ -8,9 +8,9 @@
 
     <div class="flex md:flex-row flex-col border border-gray-300 rounded-lg 2xl:h-64 md:h-48 mt-4">
       <div class="md:w-1/2 w-full flex flex-col justify-center text-gray-500 space-y-2 p-4">
-        <span>{{ user?.firstname }} {{ user?.lastname }}</span>
-        <span>{{ user?.address }}</span>
-        <span>{{ user?.zipcode }} {{ user?.city }}</span>
+        <span class="username">{{ user?.firstname }} {{ user?.lastname }}</span>
+        <span class="address">{{ user?.address }}</span>
+        <span class="city">{{ user?.zipcode }} {{ user?.city }}</span>
         <div>
           <a [routerLink]="['/cart/customer-infos']"
             class="block font-semibold text-green-500 hover:text-green-600 pt-4">
@@ -47,7 +47,7 @@
       <span>Shipping time</span>
       <span class="text-red-500 pl-1 pt-1">*</span>
       <span *ngIf="form.get('deliveryTime')?.hasError('required') && form.get('deliveryTime')?.touched"
-        class="text-red-500 text-xs font-normal pt-1 pl-2">
+        class="text-red-500 text-xs font-normal pt-1 pl-2 error">
         Field is required
       </span>
     </h2>
