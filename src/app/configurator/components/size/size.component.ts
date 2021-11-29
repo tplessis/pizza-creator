@@ -1,4 +1,9 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormGroup,
@@ -14,6 +19,7 @@ export const PIZZA_SIZE_ACCESSOR = {
 
 @Component({
   selector: 'pizza-size',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PIZZA_SIZE_ACCESSOR],
   templateUrl: './size.component.html',
   styleUrls: ['./size.component.scss']

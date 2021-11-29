@@ -1,5 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { IPizza } from '@shared/models/pizza.interface';
 
 export const DROP_ANIMATION = trigger('drop', [
@@ -21,6 +28,7 @@ export const DROP_ANIMATION = trigger('drop', [
 
 @Component({
   selector: 'pizza-viewer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [DROP_ANIMATION],
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.scss']
@@ -48,13 +56,14 @@ export class ViewerComponent implements OnInit, AfterContentInit {
     }, this.pizza?.size?.price || 0);
   }
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     setTimeout(() => {
       this.active = true;
+      this.cdr.markForCheck();
     }, 500);
   }
 }

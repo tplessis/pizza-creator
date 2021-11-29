@@ -1,14 +1,20 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { IPizza } from '../../../shared/models/pizza.interface';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'pizza-cart-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-
   @Input()
   pizzas: IPizza[];
 
@@ -27,7 +33,7 @@ export class ContentComponent implements OnInit {
   @Output()
   openCart = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {}
 
