@@ -13,7 +13,7 @@
             for="firstname">
             <span>Firstname <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('firstname')?.hasError('required') && form.get('firstname')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs normal-case font-normal error">
               Field is required
             </span>
           </label>
@@ -30,7 +30,7 @@
             for="lastname">
             <span>Lastname <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('lastname')?.hasError('required') && form.get('lastname')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
           </label>
@@ -50,11 +50,11 @@
             for="email">
             <span>Email <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
             <span *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Invalid email format
             </span>
           </label>
@@ -71,11 +71,11 @@
             for="phone">
             <span>Phone <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
             <span *ngIf="form.get('phone')?.hasError('pattern') && form.get('phone')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Innvalid phone number format
             </span>
           </label>
@@ -99,7 +99,7 @@
             for="address">
             <span>Address <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('address')?.hasError('required') && form.get('address')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
           </label>
@@ -119,7 +119,7 @@
             for="zipcode">
             <span>Postal code <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('zipcode')?.hasError('required') && form.get('zipcode')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
           </label>
@@ -136,7 +136,7 @@
             for="city">
             <span>City <span class="text-red-500">*</span></span>
             <span *ngIf="form.get('city')?.hasError('required') && form.get('city')?.touched"
-              class="text-red-500 text-xs  normal-case font-normal">
+              class="text-red-500 text-xs  normal-case font-normal error">
               Field is required
             </span>
           </label>

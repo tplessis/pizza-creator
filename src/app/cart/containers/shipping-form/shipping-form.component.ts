@@ -4,14 +4,14 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { IUser } from '@shared/models/user.interface';
 import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
 import { LngLatLike } from 'mapbox-gl';
 import { take } from 'rxjs/operators';
-import * as dayjs from 'dayjs';
 import { Router } from '@angular/router';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'pizza-shipping-form',

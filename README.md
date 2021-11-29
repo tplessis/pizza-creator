@@ -6,7 +6,7 @@
 
 # PizzaCreator
 
-**Note:** Assets and original idea of the pizza generator from Todd Motto. [Here](https://github.com/toddmotto/angular-pizza-creator) is the original version.
+**Note:** Assets and original idea of the pizza builder from Todd Motto. [Here](https://github.com/toddmotto/angular-pizza-creator) is the original version.
 
 ## Introduction
 
@@ -33,10 +33,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
