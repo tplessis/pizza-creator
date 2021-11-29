@@ -53,8 +53,23 @@ describe('CustomerFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should display error messages if required inputs are not filled', () => {
+    component.form.reset();
+    component.form.markAllAsTouched();
+    fixture.detectChanges();
+    expect(component.form.valid).toBeFalsy();
+    expect(fixture.nativeElement.querySelector('label[for=firstname] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=lastname] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=email] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=phone] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=address] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=zipcode] span.error')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('label[for=city] span.error')).toBeTruthy();
+  });
+
   it('should submits the form successfully', () => {
     fillForm(component);
+    component.onSubmit();
     expect(component.form.valid).toBeTruthy();
   });
 
