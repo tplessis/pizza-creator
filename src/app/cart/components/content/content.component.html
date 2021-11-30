@@ -29,7 +29,8 @@
         (removePizza)="onRemovePizza($event)">
       </pizza-content-items>
     </div>
-    <div class="flex flex-col border-gray-500 pt-4 pb-4 border-t border-b-2 mt-2">
+    <div class="flex flex-col border-gray-500 pt-4 pb-4 border-t border-b-2 mt-2"
+      *ngIf="pizzas.length > 0">
       <div class="flex w-full justify-between transition-all duration-300 overflow-hidden">
         <span class="text-gray-300 font-thin">Subtotal</span>
         <span class="text-gray-400 font-medium">{{ totalPrice | currency:'EUR':'symbol':'2.2-2' }}</span>
@@ -41,7 +42,8 @@
     </div>
   </div>
 
-  <div class="flex w-full justify-between text-xl mt-4">
+  <div class="flex w-full justify-between text-xl mt-4"
+    *ngIf="pizzas.length > 0">
     <span class="text-gray-300 font-base">Total</span>
     <span class="text-gray-50 font-medium">{{ (totalPrice + shippingPrice) | currency:'EUR':'symbol':'2.2-2' }}</span>
   </div>

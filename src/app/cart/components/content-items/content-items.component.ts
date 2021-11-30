@@ -6,7 +6,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { IPizza } from '../../../shared/models/pizza.interface';
+import { IPizza } from '@shared/models/pizza.interface';
 
 @Component({
   selector: 'pizza-content-items',
