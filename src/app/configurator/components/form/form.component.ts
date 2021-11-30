@@ -1,12 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { IPizzaSize } from '@shared/models/pizza-size.interface';
 import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
 
 @Component({
   selector: 'pizza-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit {
   @Input()

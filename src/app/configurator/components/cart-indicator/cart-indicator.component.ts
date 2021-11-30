@@ -1,10 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { IPizza } from '@shared/models/pizza.interface';
 
 @Component({
   selector: 'pizza-cart-indicator',
-  templateUrl: './cart-indicator.component.html',
-  styleUrls: ['./cart-indicator.component.scss']
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './cart-indicator.component.html'
 })
 export class CartIndicatorComponent implements OnInit {
   @Input()

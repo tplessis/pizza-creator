@@ -1,0 +1,14 @@
+[
+  { "id": 1, "label": "anchovy", "price": 0.9 },
+  { "id": 2, "label": "bacon", "price": 0.9 },
+  { "id": 3, "label": "basil", "price": 0.9 },
+  { "id": 4, "label": "chili", "price": 0.9 },
+  { "id": 5, "label": "mozzarella", "price": 0.9 },
+  { "id": 6, "label": "mushroom", "price": 0.9 },
+  { "id": 7, "label": "olive", "price": 0.9 },
+  { "id": 8, "label": "onion", "price": 0.9 },
+  { "id": 9, "label": "pepper", "price": 0.9 },
+  { "id": 10, "label": "pepperoni", "price": 0.9 },
+  { "id": 11, "label": "sweetcorn", "price": 0.9 },
+  { "id": 12, "label": "tomato", "price": 0.9 }
+]

@@ -8,7 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
 import { PaymentFormComponent } from '../payment-form/payment-form.component';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 const fillForm = (component) => {
   const deliveryTimecontrol: AbstractControl =
@@ -61,6 +61,7 @@ describe('ShippingFormComponent', () => {
       zipcode: '31000',
       city: 'Toulouse'
     };
+    fixture.detectChanges();
     expect(
       fixture.nativeElement.querySelector('.username').textContent
     ).toContain(component.user.firstname + ' ' + component.user.lastname);

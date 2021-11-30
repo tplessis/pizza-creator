@@ -1,4 +1,9 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormGroup,
@@ -14,9 +19,9 @@ export const PIZZA_TOPPINGS_ACCESSOR = {
 
 @Component({
   selector: 'pizza-toppings',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PIZZA_TOPPINGS_ACCESSOR],
-  templateUrl: './toppings.component.html',
-  styleUrls: ['./toppings.component.scss']
+  templateUrl: './toppings.component.html'
 })
 export class ToppingsComponent implements ControlValueAccessor {
   @Input()

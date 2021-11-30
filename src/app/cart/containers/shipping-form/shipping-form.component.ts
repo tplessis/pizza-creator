@@ -11,7 +11,7 @@ import { GeocodingService } from '@shared/services/geocoding.service';
 import { LngLatLike } from 'mapbox-gl';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'pizza-shipping-form',

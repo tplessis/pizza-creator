@@ -10,13 +10,14 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import Cleave from 'cleave.js';
-import { Control } from 'mapbox-gl';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'pizza-credit-card-form',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './credit-card-form.component.html'
 })
 export class CreditCardFormComponent
@@ -41,11 +42,11 @@ export class CreditCardFormComponent
   private _cleaveCardNumberInstance: Cleave;
   private _cleaveCvvCodeInstance: Cleave;
 
-  get isCardMethod():boolean {
+  get isCardMethod(): boolean {
     return this.parent?.get('method')?.value === 'card';
   }
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.parent
@@ -53,9 +54,15 @@ export class CreditCardFormComponent
       ?.valueChanges.pipe(
         tap((method: string) => {
           if (method === 'card') {
-            this.addValidators(['card.number', 'card.name', 'card.expiration', 'card.code'], Validators.required);
+            this.addValidators(
+              ['card.number', 'card.name', 'card.expiration', 'card.code'],
+              Validators.required
+            );
           } else {
-            this.removeValidators(['card.number', 'card.name', 'card.expiration', 'card.code'], Validators.required);
+            this.removeValidators(
+              ['card.number', 'card.name', 'card.expiration', 'card.code'],
+              Validators.required
+            );
           }
         })
       )
@@ -88,14 +95,24 @@ export class CreditCardFormComponent
     }
   }
 
-  private addValidators(formControls: string[], validators: ValidatorFn[] | ValidatorFn): void {
+  refresh(): void {
+    this.cdr.markForCheck();
+  }
+
+  private addValidators(
+    formControls: string[],
+    validators: ValidatorFn[] | ValidatorFn
+  ): void {
     formControls.map((control: string) => {
       this.parent?.get(control)?.addValidators(validators);
       this.parent?.get(control)?.updateValueAndValidity();
     });
   }
 
-  private removeValidators(formControls: string[], validators: ValidatorFn[] | ValidatorFn): void {
+  private removeValidators(
+    formControls: string[],
+    validators: ValidatorFn[] | ValidatorFn
+  ): void {
     formControls.map((control: string) => {
       this.parent?.get(control)?.removeValidators(validators);
       this.parent?.get(control)?.updateValueAndValidity();

@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         matrix:
-          node: [14, 15]
+          node: [14]
       steps:
         - uses: actions/checkout@v2
         - name: Use Node.js ${{ matrix.node }}
@@ -39,7 +39,7 @@ jobs:
       needs: [setup]
       strategy:
         matrix:
-          node: [14, 15]
+          node: [14]
       steps:
         - uses: actions/checkout@v2
         - name: Use Node.js ${{ matrix.node }}
@@ -68,7 +68,7 @@ jobs:
       needs: [setup, test]
       strategy:
         matrix:
-          node: [14, 15]
+          node: [14]
       steps:
         - uses: actions/checkout@v2
         - name: Use Node.js ${{ matrix.node }}
