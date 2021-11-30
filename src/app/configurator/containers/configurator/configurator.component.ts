@@ -1,12 +1,12 @@
-import { IPizzaTopping } from './../../../shared/models/pizza-topping.interface';
-import { IPizzaSize } from './../../../shared/models/pizza-size.interface';
+import { IPizzaTopping } from '@shared/models/pizza-topping.interface';
+import { IPizzaSize } from '@shared/models/pizza-size.interface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from '@shared/services/cart.service';
 import { Router } from '@angular/router';
 import { IPizza } from '@shared/models/pizza.interface';
 import { combineLatest } from 'rxjs';
-import { PizzaService } from '../../../shared/services/pizza.service';
+import { PizzaService } from '@shared/services/pizza.service';
 
 @Component({
   selector: 'pizza-configurator',
