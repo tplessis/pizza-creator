@@ -6,6 +6,10 @@ import { By } from '@angular/platform-browser';
 import { ConfiguratorComponent } from './configurator.component';
 import { CartService } from '../../../shared/services/cart.service';
 import { Router } from '@angular/router';
+import { PizzaService } from '../../../shared/services/pizza.service';
+import { HttpClientModule } from '@angular/common/http';
+import pizzaSizes from '../../../../assets/datas/sizes.json';
+import pizzaToppings from '../../../../assets/datas/toppings.json';
 
 export function findComponent<T>(
   fixture: ComponentFixture<T>,
@@ -21,8 +25,8 @@ const cartService = {
 const fillForm = (component, numberOfToppings = 3) => {
   const sizeControl: AbstractControl = component.form.controls['size'];
   const toppingsControl: AbstractControl = component.form.controls['toppings'];
-  sizeControl.setValue(component.sizes[0]);
-  toppingsControl.setValue(component.toppings.slice(0, numberOfToppings));
+  sizeControl.setValue(pizzaSizes[0]);
+  toppingsControl.setValue(pizzaToppings.slice(0, numberOfToppings));
 };
 
 describe('ConfiguratorComponent', () => {
@@ -35,9 +39,10 @@ describe('ConfiguratorComponent', () => {
       navigate: jasmine.createSpy('navigate')
     };
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientModule],
       declarations: [ConfiguratorComponent],
       providers: [
+        PizzaService,
         {
           provide: CartService,
           useValue: cartService

@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 export const PIZZA_TIME_SLOT_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,

@@ -13,6 +13,7 @@ import {
 import { FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import Cleave from 'cleave.js';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'pizza-credit-card-form',
@@ -45,7 +46,7 @@ export class CreditCardFormComponent
     return this.parent?.get('method')?.value === 'card';
   }
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.parent
@@ -92,6 +93,10 @@ export class CreditCardFormComponent
     if (this._cleaveCvvCodeInstance) {
       this._cleaveCvvCodeInstance.destroy();
     }
+  }
+
+  refresh(): void {
+    this.cdr.markForCheck();
   }
 
   private addValidators(

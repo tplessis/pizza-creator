@@ -1,0 +1,5 @@
+[
+  { "label": "large", "value": 13, "price": 8.5 },
+  { "label": "medium", "value": 11, "price": 7 },
+  { "label": "small", "value": 9, "price": 6 }
+]
