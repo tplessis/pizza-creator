@@ -19,6 +19,7 @@
 - [x] Routing, Lazy Loading
 - [x] Smart / Dumb components architecture
 - [x] Reactive forms, form validation
+- [x] A simple store using Observables to manage cart items
 - [x] OnPush Strategy for change detection
 - [x] A fresh UI using TailwindCSS with a real mobile version
 - [x] Testing using Jasmine and Karma
