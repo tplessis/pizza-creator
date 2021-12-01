@@ -108,4 +108,11 @@ export class CartService {
       deliveryTime: date
     });
   }
+
+  clearCart(): void {
+    this.subject.next({
+      ...this.value,
+      pizzas: []
+    });
+  }
 }
