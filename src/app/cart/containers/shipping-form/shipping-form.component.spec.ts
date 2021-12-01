@@ -9,11 +9,34 @@ import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
 import { PaymentFormComponent } from '../payment-form/payment-form.component';
 import dayjs from 'dayjs';
+import { of } from 'rxjs';
 
 const fillForm = (component) => {
   const deliveryTimecontrol: AbstractControl =
     component.form.controls['deliveryTime'];
   deliveryTimecontrol.setValue(dayjs().hour(11).minute(0).second(0).toDate());
+};
+
+const fakeUser = {
+  firstname: 'Thomas',
+  lastname: 'Plessis',
+  email: 'tom.plessis@gmail.com',
+  phone: '0600000000',
+  address: 'Place du capitole',
+  zipcode: '31000',
+  city: 'Toulouse'
+};
+
+const cartServiceStub = {
+  get user$() {
+    return of(fakeUser);
+  },
+
+  get deliveryTime$() {
+    return of(null);
+  },
+
+  setDeliveryTime() {}
 };
 
 describe('ShippingFormComponent', () => {
@@ -31,7 +54,10 @@ describe('ShippingFormComponent', () => {
         ])
       ],
       declarations: [ShippingFormComponent, TimeSlotComponent],
-      providers: [CartService, GeocodingService],
+      providers: [
+        { provide: CartService, useValue: cartServiceStub },
+        GeocodingService
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .overrideComponent(ShippingFormComponent, {
@@ -52,24 +78,15 @@ describe('ShippingFormComponent', () => {
   });
 
   it('should display user address if given', () => {
-    component.user = {
-      firstname: 'Thomas',
-      lastname: 'Plessis',
-      email: 'tom.plessis@gmail.com',
-      phone: '0600000000',
-      address: 'Place du capitole',
-      zipcode: '31000',
-      city: 'Toulouse'
-    };
     fixture.detectChanges();
     expect(
       fixture.nativeElement.querySelector('.username').textContent
-    ).toContain(component.user.firstname + ' ' + component.user.lastname);
+    ).toContain(fakeUser.firstname + ' ' + fakeUser.lastname);
     expect(
       fixture.nativeElement.querySelector('.address').textContent
-    ).toContain(component.user.address);
+    ).toContain(fakeUser.address);
     expect(fixture.nativeElement.querySelector('.city').textContent).toContain(
-      component.user.zipcode + ' ' + component.user.city
+      fakeUser.zipcode + ' ' + fakeUser.city
     );
   });
 

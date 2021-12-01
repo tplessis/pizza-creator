@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from '@shared/services/cart.service';
 import { Router } from '@angular/router';
 import { IPizza } from '@shared/models/pizza.interface';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { PizzaService } from '@shared/services/pizza.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class ConfiguratorComponent implements OnInit {
 
   sizes: IPizzaSize[];
   toppings: IPizzaTopping[];
-  pizzas: IPizza[];
+  pizzas$: Observable<IPizza[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -31,7 +31,7 @@ export class ConfiguratorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pizzas = this.cartService.pizzas;
+    this.pizzas$ = this.cartService.pizzas$;
     combineLatest([
       this.pizzaService.getSizes(),
       this.pizzaService.getToppings()

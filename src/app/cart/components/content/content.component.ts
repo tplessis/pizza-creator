@@ -15,11 +15,27 @@ import { IPizza } from '@shared/models/pizza.interface';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  @Input()
-  pizzas: IPizza[];
+  _pizzas: IPizza[];
+
+  get pizzas(): IPizza[] {
+    return this._pizzas;
+  }
 
   @Input()
-  totalPrice: number;
+  set pizzas(value: IPizza[] | null) {
+    this._pizzas = value || [];
+  }
+
+  _totalPrice: number;
+
+  get totalPrice(): number {
+    return this._totalPrice;
+  }
+
+  @Input()
+  set totalPrice(value: number | null) {
+    this._totalPrice = value || 0;
+  }
 
   @Input()
   shippingPrice: number;

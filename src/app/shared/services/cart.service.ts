@@ -1,85 +1,73 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { distinctUntilChanged, pluck, map, tap } from 'rxjs/operators';
 import { IPizza } from '../models/pizza.interface';
 import { IUser } from '../models/user.interface';
 
-enum sessionKeys {
-  cart = 'pizza-cart',
-  user = 'pizza-user',
-  deliveryTime = 'deliveryTime'
+export interface CartState {
+  user: IUser | undefined;
+  pizzas: IPizza[];
+  deliveryTime: Date | undefined;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private _items: IPizza[];
-  private _user: IUser;
-  private _deliveryTime: Date;
+  private subject: BehaviorSubject<CartState>;
+  private cartStore: Observable<CartState>;
   private _shippingPrice = 4.5;
 
-  get user(): IUser {
-    return this._user;
-  }
-
-  get pizzas(): IPizza[] {
-    return this._items;
-  }
-
-  get deliveryTime(): Date {
-    return this._deliveryTime;
+  get value() {
+    return this.subject.value;
   }
 
   get shippingPrice(): number {
     return this._shippingPrice;
   }
 
-  get totalPrice(): number {
-    return this._items.reduce((prev: number, next: IPizza) => {
-      return prev + this.getPizzaPrice(next);
-    }, 0);
+  get pizzas$(): Observable<IPizza[]> {
+    return this.cartStore.pipe(pluck('pizzas'));
+  }
+
+  get user$(): Observable<IUser | undefined> {
+    return this.cartStore.pipe(pluck('user'));
+  }
+
+  get deliveryTime$(): Observable<Date | undefined> {
+    return this.cartStore.pipe(pluck('deliveryTime'));
+  }
+
+  get totalPrice$(): Observable<number> {
+    return this.pizzas$.pipe(
+      map((pizzas: IPizza[]) => {
+        return pizzas.reduce((prev: number, next: IPizza) => {
+          return prev + this.getPizzaPrice(next);
+        }, 0);
+      })
+    );
   }
 
   constructor() {
-    const sessionUser = sessionStorage.getItem(sessionKeys.user);
-    const sessionCart = sessionStorage.getItem(sessionKeys.cart);
-    const sessionDeliveryTime = sessionStorage.getItem(
-      sessionKeys.deliveryTime
+    const state: CartState = JSON.parse(
+      sessionStorage.getItem('pizza-state') ??
+        JSON.stringify({
+          user: undefined,
+          pizzas: [],
+          deliveryTime: undefined
+        })
     );
 
-    this._user = sessionUser ? JSON.parse(sessionUser) : undefined;
-    this._items = sessionCart ? JSON.parse(sessionCart) : [];
-    this._deliveryTime = sessionDeliveryTime
-      ? JSON.parse(sessionDeliveryTime)
-      : undefined;
+    this.subject = new BehaviorSubject<CartState>(state);
+    this.cartStore = this.subject.asObservable().pipe(
+      distinctUntilChanged(),
+      tap((state) => {
+        sessionStorage.setItem('pizza-state', JSON.stringify(state));
+      })
+    );
   }
 
-  addPizza(pizza: IPizza): void {
-    this._items.push(pizza);
-    this.addObjectToSession(sessionKeys.cart, this._items);
-  }
-
-  removePizza(pizza: IPizza): void {
-    this._items = this._items.filter((p: IPizza) => pizza !== p);
-    this.addObjectToSession(sessionKeys.cart, this._items);
-  }
-
-  setUser(user: IUser): void {
-    this._user = user;
-    this.addObjectToSession(sessionKeys.user, user);
-  }
-
-  setDeliveryTime(date: Date): void {
-    this._deliveryTime = date;
-    this.addObjectToSession(sessionKeys.deliveryTime, date);
-  }
-
-  clearCart(): IPizza[] {
-    this._items = [];
-    this.addObjectToSession(sessionKeys.cart, []);
-    return this._items;
-  }
-
-  getPizzaPrice(pizza: IPizza): number {
+  private getPizzaPrice(pizza: IPizza): number {
     if (!pizza) {
       return 0;
     }
@@ -93,7 +81,31 @@ export class CartService {
     }, pizza?.size?.price || 0);
   }
 
-  private addObjectToSession(key: sessionKeys, value: any): void {
-    sessionStorage.setItem(key, JSON.stringify(value));
+  addPizza(pizza: IPizza): void {
+    this.subject.next({
+      ...this.value,
+      pizzas: [...this.value.pizzas, { ...pizza, id: this.value.pizzas.length }]
+    });
+  }
+
+  removePizza(pizza: IPizza): void {
+    this.subject.next({
+      ...this.value,
+      pizzas: [...this.value.pizzas.filter((p) => p.id !== pizza.id)]
+    });
+  }
+
+  setUser(user: IUser): void {
+    this.subject.next({
+      ...this.value,
+      user: user
+    });
+  }
+
+  setDeliveryTime(date: Date): void {
+    this.subject.next({
+      ...this.value,
+      deliveryTime: date
+    });
   }
 }

@@ -15,7 +15,7 @@ import { IPizza } from '@shared/models/pizza.interface';
 })
 export class ContentItemsComponent implements OnInit {
   @Input()
-  pizzas: IPizza[];
+  pizzas: IPizza[] | null;
 
   @Output()
   removePizza = new EventEmitter<IPizza>();

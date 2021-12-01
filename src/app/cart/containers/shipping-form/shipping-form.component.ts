@@ -9,9 +9,10 @@ import { IUser } from '@shared/models/user.interface';
 import { CartService } from '@shared/services/cart.service';
 import { GeocodingService } from '@shared/services/geocoding.service';
 import { LngLatLike } from 'mapbox-gl';
-import { take } from 'rxjs/operators';
+import { tap, map, filter, take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import dayjs from 'dayjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pizza-shipping-form',
@@ -36,32 +37,40 @@ export class ShippingFormComponent implements OnInit {
   ];
 
   form = this.fb.group({
-    deliveryTime: [this.cartService.deliveryTime, Validators.required]
+    deliveryTime: [null, Validators.required]
   });
 
-  user: IUser;
-  center: LngLatLike | undefined = [2.454071, 46.279229];
+  user$: Observable<IUser | undefined>;
+  center$: Observable<LngLatLike>;
+  defaultCenter: [2.454071, 46.279229];
 
   constructor(
     private fb: FormBuilder,
-    private cdr: ChangeDetectorRef,
     private cartService: CartService,
     private geocodingService: GeocodingService,
     private router: Router
   ) {
-    this.user = this.cartService.user;
+    this.user$ = this.cartService.user$.pipe(
+      filter((user) => !!user),
+      tap((user) => {
+        this.center$ = this.geocodingService
+          .getGeocoding(user?.address + ' ' + user?.zipcode + ' ' + user?.city)
+          .pipe(
+            map((center) => {
+              if (!center) {
+                return this.defaultCenter;
+              }
 
-    if (this.user) {
-      this.geocodingService
-        .getGeocoding(
-          this.user.address + ' ' + this.user.zipcode + ' ' + this.user.city
-        )
-        .pipe(take(1))
-        .subscribe((location) => {
-          this.center = location;
-          this.cdr.markForCheck();
-        });
-    }
+              return center;
+            })
+          );
+      }),
+      take(1)
+    );
+
+    this.cartService.deliveryTime$.subscribe((deliveryTime) =>
+      this.form.controls['deliveryTime'].setValue(deliveryTime)
+    );
   }
 
   ngOnInit(): void {}

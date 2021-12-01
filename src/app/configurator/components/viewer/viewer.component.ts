@@ -38,7 +38,7 @@ export class ViewerComponent implements OnInit, AfterContentInit {
   pizza: IPizza;
 
   @Input()
-  pizzas: Array<IPizza>;
+  pizzas: Array<IPizza> | null;
 
   active = false;
 

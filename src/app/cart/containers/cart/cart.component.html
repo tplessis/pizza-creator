@@ -22,8 +22,8 @@
     </div>
   </div>
   <div class="w-full md:w-1/3">
-    <pizza-cart-content [pizzas]="pizzas"
-      [totalPrice]="totalPrice"
+    <pizza-cart-content [pizzas]="pizzas$ | async"
+      [totalPrice]="totalPrice$ | async"
       [shippingPrice]="shippingPrice"
       [cartOpen]="cartOpen"
       (openCart)="onOpenCart()"
