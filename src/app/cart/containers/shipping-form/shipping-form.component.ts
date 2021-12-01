@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IUser } from '@shared/models/user.interface';
 import { CartService } from '@shared/services/cart.service';
