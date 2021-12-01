@@ -13,7 +13,7 @@ import { IPizza } from '@shared/models/pizza.interface';
 })
 export class CartIndicatorComponent implements OnInit {
   @Input()
-  pizzas: Array<IPizza>;
+  pizzas: Array<IPizza> | null;
 
   constructor() {}
 

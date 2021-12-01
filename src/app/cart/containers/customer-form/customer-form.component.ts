@@ -9,31 +9,19 @@ import { CartService } from '@shared/services/cart.service';
 })
 export class CustomerFormComponent implements OnInit {
   form = this.fb.group({
-    firstname: [this.cartService.user?.firstname, Validators.required],
-    lastname: [this.cartService.user?.lastname, Validators.required],
-    email: [
-      this.cartService.user?.email,
-      [Validators.required, Validators.email]
-    ],
+    firstname: ['', Validators.required],
+    lastname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     phone: [
-      this.cartService.user?.phone,
+      '',
       [
         Validators.required,
         Validators.pattern(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/)
       ]
     ],
-    address: [
-      this.cartService.user?.address,
-      [Validators.required, Validators.minLength(3)]
-    ],
-    zipcode: [
-      this.cartService.user?.zipcode,
-      [Validators.required, Validators.minLength(5)]
-    ],
-    city: [
-      this.cartService.user?.city,
-      [Validators.required, Validators.minLength(3)]
-    ]
+    address: ['', [Validators.required, Validators.minLength(3)]],
+    zipcode: ['', [Validators.required, Validators.minLength(5)]],
+    city: ['', [Validators.required, Validators.minLength(3)]]
   });
 
   constructor(
@@ -42,7 +30,13 @@ export class CustomerFormComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartService.user$.subscribe((user) => {
+      if (user) {
+        this.form.setValue(user);
+      }
+    });
+  }
 
   onSubmit() {
     this.form.markAllAsTouched();
