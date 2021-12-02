@@ -2,20 +2,20 @@
   [formGroup]="form"
   class="flex flex-col h-full">
 
-  <div class="flex-1 flex flex-col justify-start">
-    <h2 class="text-gray-800 font-thin text-2xl mt-6">
+  <div class="flex flex-col justify-start flex-1">
+    <h2 class="mt-6 text-2xl font-thin text-gray-800">
       <span>Payment selection</span>
-      <span class="text-red-500 pl-1 pt-1">*</span>
+      <span class="pt-1 pl-1 text-red-500">*</span>
       <span *ngIf="form.get('method')?.hasError('required') && form.get('method')?.touched"
-        class="text-red-500 text-xs font-normal pt-1 pl-2">
+        class="pt-1 pl-2 text-xs font-normal text-red-500 error">
         Field is required
       </span>
     </h2>
 
     <div class="flex flex-col space-y-6 2xl:space-y-10">
-      <div class="relative border  rounded-lg p-4 w-full mt-4"
+      <div class="relative w-full p-4 mt-4 border rounded-lg"
         [ngClass]="form.get('method')?.value === 'card' ? 'border-green-500' : 'border-gray-300'">
-        <div class="absolute top-3 2xl:top-4 right-4 flex space-x-4">
+        <div class="absolute flex space-x-4 top-3 2xl:top-4 right-4">
           <img src="/assets/images/visa.png"
             alt="Visa"
             class="w-6" />
@@ -42,9 +42,9 @@
         <pizza-credit-card-form [parent]="form">
         </pizza-credit-card-form>
       </div>
-      <div class="relative border  rounded-lg p-4 w-full mt-4"
+      <div class="relative w-full p-4 mt-4 border rounded-lg"
         [ngClass]="form.get('method')?.value === 'paypal' ? 'border-green-500' : 'border-gray-300'">
-        <div class="absolute top-1 2xl:top-2 right-4 flex space-x-4">
+        <div class="absolute flex space-x-4 top-1 2xl:top-2 right-4">
           <img src="/assets/images/paypal.png"
             alt="PayPal"
             class="w-24" />
@@ -66,15 +66,15 @@
     </div>
   </div>
 
-  <div class="flex md:flex-row flex-col justify-between">
+  <div class="flex flex-col justify-between md:flex-row">
     <pizza-back-button></pizza-back-button>
-    <div class="flex xl:space-x-6 md:space-x-4 space-x-2">
+    <div class="flex space-x-2 xl:space-x-6 md:space-x-4">
       <a [routerLink]="['/cart/shipping-infos']"
-        class="rounded border border-gray-400 text-gray-500 font-semibold text-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 py-2 2xl:py-3 px-4 2xl:px-6">
+        class="px-4 py-2 font-semibold text-center text-gray-500 border border-gray-400 rounded hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 2xl:py-3 2xl:px-6">
         Previous
       </a>
       <button type="submit"
-        class="flex-1 md:flex-none rounded bg-green-400 text-green-50 font-semibold text-center hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 py-2 2xl:py-3 px-4 2xl:px-6">
+        class="flex-1 px-4 py-2 font-semibold text-center bg-green-400 rounded md:flex-none text-green-50 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 2xl:py-3 2xl:px-6">
         Complete order
       </button>
     </div>
